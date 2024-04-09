@@ -1,0 +1,48 @@
+README
+Equivalencias archivos anotación TESIS
+
+L. INFANTUM
+Genoma: 	LinJ_NewGenome_corrected.fasta	LinJ_cbm_v2.fasta
+Anotación genoma: 	LinJ_cbm_v9_CDS.gff	LinJ_cbm_v2_2_CDS.gff	
+Anotación transcriptoma: 	LinJ_cbm_v1_corrected_18.gtf	LinJ_cbm_v2_MT.gtf
+Anotación combinada: 	anotacion_combinada_v9.gff3	LinJ_cbm_v2_combined.gff3
+Maxicírculo: 	LinJ_cbm_maxicircle.fasta
+Anotación maxicírculo: LinJ_cbm_maxicircle.gff
+Minicírculos: LinJ_cbm_circular_minicircles.fasta
+Anotación isoformas Iso-Seq: LinJ_cbm_vs_hq_isoseq_strand_cor_25.gff3	LinJ_cbm_v2_Iso-Seq_isoforms.gff3
+Anotación isoformas completas Iso-Seq: LinJ_cbm_vs_hq_con_SLs_isoseq_15.gff3	LinJ_cbm_v2_Iso-Seq_complete_isoforms.gff3
+
+L. MAJOR
+Genoma: MAJORNEW_DEFINITIVO_CORREGIDO_JM_FINAL_NEWversion_v2.fasta	LmjFc_cbm_v1.fasta
+Anotación genoma: anotacion_LmajorNew_DEFINITIVO_29_PRODUCT_19.gff	LmjFc_cbm_v1_CDS.gff
+Anotación transcriptoma: LmjF_v0_mod_29_18.gtf	LmjFc_cbm_v1_MT.gtf	
+Anotación combinada: COMBINADA_35.gff3	LmjFc_v1_combined.gff3
+Maxicírculo: LmjF_cbm_maxicircle.fasta
+Anotación maxicírculo: LmjF_cbm_maxicircle.gff
+Minicírculos: LmjF_cbm_circular_minicircles.fasta
+
+L. DONOVANI
+Genoma: LdHU3_cbm_v1_corrected.fasta	LdHU3_cbm_v1.fasta
+Anotación genoma: LdHU3_cbm_v1_CDS_corrected2_no_comment_4.gff	LdHU3_cbm_v1_CDS.gff
+Anotación transcriptoma: LdHU3_cbm_v1_corrected5.gtf	LdHU3_cbm_v1_MT.gtf
+Anotación combinada: anotacion_combinada_donovani_v4.gff3 LdHU3_v1_combined.gff3
+Maxicírculo: LdHU3_cbm_maxicircle.fasta
+Anotación maxicírculo: LdHU3_cbm_maxicircle.gff
+Minicírculos: LdHU3_cbm_circular_minicircles.fasta
+
+L. BRAZILIENSIS
+Genoma: Lbraziliensis_corrected_v2.fasta	LbrM_cbm_v1.fasta
+Anotación genoma: LbrM2904_cbm_v1_CDS_corrected7_cambiostransc.gff	LbrM_cbm_v1_CDS.gff
+Anotación transcriptoma: LbrM_v1_trasladado_18.gtf	LbrM_cbm_v1_MT.gtf
+Anotación combinada: anotacion_combinada_braziliensis_3.gff3	LbrM_v1_combined.gff3
+Maxicírculo: LbrM_cbm_maxicircle.fasta
+Anotación maxicírculo: LbrM_cbm_maxicircle.gff
+Minicírculos: LbrM_cbm_circular_minicircles.fasta
+
+L. GUYANENSIS
+Maxicírculo: maxicirculo_guyanensis.fasta Lguy_cbm_maxicircle.fasta
+
+L. ADLERI
+Maxicírculo: maxicirculo_adleri.fasta Ladl_cbm_maxicircle.fasta
+
+
