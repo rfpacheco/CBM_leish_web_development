@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<!-- =========================================================================================== -->
+<!-- HEAD -->
+<!-- =========================================================================================== -->
 <head>
 	<meta charset="utf-8">
 	<title>Leish-ESP</title>
@@ -12,7 +15,7 @@
 
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Arial" rel="stylesheet"> --> <!-- Importing font from google: Arial is not en google-->
-	<link href="browser_style_prueba.css" rel="stylesheet"> <!-- Goes after the other CSS to have priority -->
+	<link href="./styles/browser_style_prueba.css" rel="stylesheet"> <!-- Goes after the other CSS to have priority -->
 
 	
 	<!-- The ones BELOW seem to be UNIMPORTANT-->
@@ -26,23 +29,42 @@
 	
 </head>
 
+<!-- =========================================================================================== -->
+<!-- HEADER -->
+<!-- =========================================================================================== -->
 <!--<body class="container">-->
-<header>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+<header> <!-- This is the header (upper part) of the webpage -->
+	<!-- Global site tag (gtag.js) - Google A nalytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113823402-1"></script>  <!-- Includes Google Analytics tracking code in the webpage-->
-	<script>
+	<!-- Google Analytics tracking code: collects data about users-->
+	<script> 
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'UA-113823402-1');
 	</script>
 	<img class="img-circle" id="preload" onload="fadeIn(this)" src="/img/apple-icon-rounded.png" alt="logo_circle" style="width: 4.5%; height: auto">
-	<a href="http://www.cbm.uam.es/joomla-rl/index.php/es/"><img class="img-cbm" id="preload" onload="fadeIn(this)" src="/img/LogoPeqCBMSO.jpg" alt="logo_CBMSO" style="width: 6%; height: auto"></a>
-	<br>
-	<div><center><h1><font color="white"><b>Leish-ESP:</b></font></h1> <h2><font color="white"><em>Leishmania Expression and Sequencing Projects</em></font></h2></center></div>
+	<a href="http://www.cbm.uam.es/joomla-rl/index.php/es/" target="_blank">
+		<img class="img-cbm" id="preload" onload="fadeIn(this)" src="/img/LogoPeqCBMSO.jpg" alt="logo_CBMSO" style="width: 6%; height: auto">
+	</a>
+
+	<!-- <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;> -->
+	<div style="display: flex;">
+		<center>
+			<h1>
+				<font color="white"><b>Leish-ESP</b></font>
+			</h1>
+			<br>
+			<h2>
+				<font color="white"><em>Leishmania Expression and Sequencing Projects</em></font>
+			</h2>
+		</center>
+	</div>
 </header>
+</header>
+
 <img src="/img/leish6.png" alt="leish6" style="width: 100%; height: auto;">
+
 <article>
 	<!--<div class='box'>-->
 	<br>
