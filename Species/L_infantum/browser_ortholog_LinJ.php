@@ -75,14 +75,14 @@ function filterTable($query)
       <br>
       <br>
 	<ul>
-        <p>Here's an interactive Browser with the genome annotation in <em>L. infantum</em> based on <a href="http://tritrypdb.org/common/downloads/release-9.0/LinfantumJPCM5/fasta/data/"><b>TriTrypDB release 9 JPCM5 strain </b></a>version of the genome.</p>
+        <p>Here's an interactive Browser with the genome annotation in <em>L. infantum</em> based on <a href="https://www.nature.com/articles/s41598-017-18374-y"><b>González-de la Fuente (2017) </b></a>version of the genome.</p>
         <p>It allows a quick visualization of the genomic locations of CDS and the download of its sequences. </p>
       <center>
       </ul>
       <br>
       <div class="container">
     </div>
-                        <iframe src="http://leish-esp.cbm.uam.es/viewer/JBrowse-1.12.3/?data=infantum&tracks=DNA%2CLinJ_cbm_genome_annotation_new&highlight="  allowtransparency="true" style="position:absolute; left:80px; right:30px; width:90%; height:400px; margin:0; padding:10px; border: 5px groove; background: #F2E6F5;"></iframe>
+                        <iframe src="http://leish-esp.cbm.uam.es/viewer/JBrowse-1.12.3/?data=infantum3&tracks=DNA%2CLinJ_cbm_genome_annotation&highlight="  allowtransparency="true" style="position:absolute; left:80px; right:30px; width:90%; height:400px; margin:0; padding:10px; border: 5px groove; background: #F2E6F5;"></iframe>
                     </div>
             </div><!--//container-->	
       <br>  

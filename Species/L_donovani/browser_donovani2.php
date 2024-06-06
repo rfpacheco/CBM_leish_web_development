@@ -31,7 +31,7 @@ function filterTable($query)
 		<meta charset="utf-8">
 		<title>Browser L.donovani</title>
 		<link href="https://fonts.googleapis.com/css?family=Arial" rel="stylesheet">
-		<link href="style6.css" rel="stylesheet">	
+		<link href="style7.css" rel="stylesheet">	
 		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -77,14 +77,14 @@ function filterTable($query)
       <br>
       <br>
 	<ul>
-        <p>Here's an interactive Browser with the genome and the transcriptome annotation in <em>L. donovani</em> based on <a href="https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-016-1329-4" target="_blank"> <b><em>Alonso et al.</em></b></a> version of the genome.</p>
+        <p>Here's an interactive Browser with the genome and the transcriptome annotation in <em>L. donovani</em> based on <a href="https://www.nature.com/articles/s41598-019-42511-4" target="_blank"> <b><em>Camacho et al.</em></b></a> version of the genome.</p>
         <p>It allows a quick visualization of the genomic locations of both CDS and transcripts, together with their sequences and other complementary information.</p>
       <center>
       </ul>
       <br>
       <div class="container">
     </div>
-                        <iframe src="http://leish-esp.cbm.uam.es/viewer/JBrowse-1.12.3/?data=donovani&tracks=DNA%2C1_alignment-track%2C2_SL-track%2C3_polyA-track%2CLdHU3_cbm_genome_annotation%2CLdHU3_cbm_transcriptome_annotation&highlight="  allowtransparency="true" style="position:absolute; left:80px; right:30px; width:90%; height:600px; margin:0; padding:10px; border: 5px groove; background: #FCEFB8;"></iframe>
+                        <iframe src="http://leish-esp.cbm.uam.es/viewer/JBrowse-1.12.3/?data=donovani&tracks=DNA%2C1_alignment-track%2C2_SL-track%2C3_polyA-track%2CLdHU3_cbm_genome_annotation%2CLdHU3_cbm_transcriptome_annotation&highlight="  allowtransparency="true" style="position:absolute; left:80px; right:30px; width:90%; height:600px; margin:0; padding:10px; border: 5px groove; background: #FCEEEB;"></iframe>
                     </div>
             </div><!--//container-->
       <br>
@@ -132,7 +132,7 @@ function filterTable($query)
       <br>
       </ul>
       </ul>
-        <form action="browser_donovani.php#Table" method="post">
+        <form action="browser_donovani2.php#Table" method="post">
             <center><input type="text" name="valueToSearch" placeholder="Value To Search"></center><br>
             <center><input type="submit" name="search" value="Filter" style= "width: 125px; padding: 8px; cursor: pointer;background:#381E83; color:#f1f1f1; font-weight: bold; border-radius: 10px; border: 1px solid #999; font-size: 100%"></center>
       <br>
