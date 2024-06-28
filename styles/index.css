@@ -1,0 +1,68 @@
+header {
+    background-image: url("../img/index/leish6.png");
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #940fc8;
+    display: table;
+    width: 100%;
+}
+
+nav li{
+    display: table-cell;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.search-bar {
+    overflow: hidden;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9e9e9;
+}
+
+.search-bar input[type=text] {
+    width: 50%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.search-bar button {
+    padding: 5px 20px;
+    margin: 8px 0;
+    background-color: #940fc8;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #111;
+}
+
+footer {
+    background-image: url("../img/logos/logos.png");
+    background-size: 100% auto;
+    background-position: center;
+    height: 100px;
+}
