@@ -1,3 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header {
     background-image: url("../img/index/leish6.png");
     background-size: cover;
@@ -60,9 +68,52 @@ li a:hover {
     background-color: #111;
 }
 
+.reddit-like {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.left-column .center-column .right-column {
+    padding: 10px;
+}
+
+.left-column {
+    width: 20%;
+}
+
+.center-column {
+    width: 60%;
+}
+
+.right-column {
+    width: 20%;
+    padding-left: 20px;
+}
+
+.post {
+    background-color: #940fc8;
+    margin: 10px 0;
+    padding-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    }
+
+.post h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.post p {
+    margin: 10px 0 0;
+}
+
 footer {
     background-image: url("../img/logos/logos.png");
     background-size: 100% auto;
     background-position: center;
     height: 100px;
+    margin-top: auto;
 }
