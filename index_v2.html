@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="./styles/index.css" rel="stylesheet" type="text/css">
-<title>Leish-ESP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet" type="text/css">
+    <link href="./styles/index.css" rel="stylesheet" type="text/css">
+    <title>Leish-ESP</title>
 </head>
-
 <body>
     <header>
         <ul>
-        <li></li><h1>LEISH-ESP</h1></li>
-        <li><h2>Leishmania genome decoding</h2></li>
+            <li></li><h1>LEISH-ESP</h1></li>
+            <li><h2>Leishmania genome decoding</h2></li>
         </ul>
     </header>
 
@@ -54,7 +54,6 @@
         </nav>
     </div>
     
-
     <div class="reddit-like">
         <aside class="left-column">
             <h2>Filters</h2>
@@ -67,7 +66,6 @@
             </table>
         </aside>
 
-        
         <main class="center-column">
             <div class="post">
                 <h2>Posts</h2>
@@ -76,17 +74,29 @@
             </div>
         </main>
 
-
-
         <aside class="right-column">
-            <h2>Extra data</h2>
-            <p>Some extra data or widgets here...or even a calendar...EVEN TWITTER!</p>
+            <div id="calendar-container">
+                <h3>Calendar</h3>
+                <div id="calendar"></div>
+            </div>
+            
+            <!-- Twitter Widget -->
+            <div id="twitter-widget-container">
+                <h3>Twitter</h3>
+                <a class="twitter-timeline" data-height="400" href="https://twitter.com/poke_tiempo?ref_src=twsrc%5Etfw">Tweets by Poke tiempo</a>
+            </div>
         </aside>
     </div>
 
-    
     <footer>
         <p>SOMTHING WRITE IN FOOTER</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="./scripts/posting.js"></script>
+    <script src="./scripts/calendar.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>

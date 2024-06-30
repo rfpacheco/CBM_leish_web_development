@@ -211,6 +211,8 @@ nav .dropdown-content a:hover {
 
 .center-column {
     width: 60%;
+    height: 1000px;
+    overflow: scroll;
 }
 
 .right-column {
@@ -219,7 +221,7 @@ nav .dropdown-content a:hover {
 }
 
 .post {
-    background-color: #940fc8;
+    background-color: rgb(125, 118, 128, 0.4);
     margin: 10px 0;
     padding-top: 15px;
     border: 1px solid #ddd;
@@ -266,4 +268,19 @@ footer {
     background-position: center;
     height: 100px;
     margin-top: auto;
+}
+
+
+#calendar-container, #twitter-widget-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#calendar-container h3, #twitter-widget-container h3 {
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
