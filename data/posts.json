@@ -1,122 +1,77 @@
 [
     {
         "title": "Post Title 1",
-        "description": "Post Description 1"
+        "description": "Post Description 1",
+        "tags": ["fire"]
     },
     {
         "title": "Post Title 2",
-        "description": "Post Description 2"
+        "description": "Post Description 2",
+        "tags": ["earth"]
     },
     {
         "title": "Post Title 3",
-        "description": "Post Description 3"
+        "description": "Post Description 3",
+        "tags": ["water"]
     },
     {
         "title": "Post Title 4",
-        "description": "Post Description 4"
+        "description": "Post Description 4",
+        "tags": ["air"]
     },
     {
         "title": "Post Title 5",
-        "description": "Post Description 5"
+        "description": "Post Description 5",
+        "tags": ["fire", "earth"]
     },
     {
         "title": "Post Title 6",
-        "description": "Post Description 6"
+        "description": "Post Description 6",
+        "tags": ["water", "air"]
     },
     {
         "title": "Post Title 7",
-        "description": "Post Description 7"
+        "description": "Post Description 7",
+        "tags": ["fire", "water"]
     },
     {
         "title": "Post Title 8",
-        "description": "Post Description 8"
+        "description": "Post Description 8",
+        "tags": ["earth", "air"]
     },
     {
         "title": "Post Title 9",
-        "description": "Post Description 9"
+        "description": "Post Description 9",
+        "tags": ["fire", "earth", "water"]
     },
     {
         "title": "Post Title 10",
-        "description": "Post Description 10"
+        "description": "Post Description 10",
+        "tags": ["earth", "water", "air"]
     },
     {
         "title": "Post Title 11",
-        "description": "Post Description 11"
+        "description": "Post Description 11",
+        "tags": ["fire", "air"]
     },
     {
         "title": "Post Title 12",
-        "description": "Post Description 12"
+        "description": "Post Description 12",
+        "tags": ["fire", "earth", "air"]
     },
     {
         "title": "Post Title 13",
-        "description": "Post Description 13"
+        "description": "Post Description 13",
+        "tags": ["water", "air", "fire"]
     },
     {
         "title": "Post Title 14",
-        "description": "Post Description 14"
+        "description": "Post Description 14",
+        "tags": ["earth", "water", "fire"]
     },
     {
         "title": "Post Title 15",
-        "description": "Post Description 15"
-    },
-    {
-        "title": "Post Title 16",
-        "description": "Post Description 16"
-    },
-    {
-        "title": "Post Title 17",
-        "description": "Post Description 17"
-    },
-    {
-        "title": "Post Title 18",
-        "description": "Post Description 18"
-    },
-    {
-        "title": "Post Title 19",
-        "description": "Post Description 19"
-    },
-    {
-        "title": "Post Title 20",
-        "description": "Post Description 20"
-    },
-    {
-        "title": "Post Title 21",
-        "description": "Post Description 21"
-    },
-    {
-        "title": "Post Title 22",
-        "description": "Post Description 22"
-    },
-    {
-        "title": "Post Title 23",
-        "description": "Post Description 23"
-    },
-    {
-        "title": "Post Title 24",
-        "description": "Post Description 24"
-    },
-    {
-        "title": "Post Title 25",
-        "description": "Post Description 25"
-    },
-    {
-        "title": "Post Title 26",
-        "description": "Post Description 26"
-    },
-    {
-        "title": "Post Title 27",
-        "description": "Post Description 27"
-    },
-    {
-        "title": "Post Title 28",
-        "description": "Post Description 28"
-    },
-    {
-        "title": "Post Title 29",
-        "description": "Post Description 29"
-    },
-    {
-        "title": "Post Title 30",
-        "description": "Post Description 30"
+        "description": "Post Description 15",
+        "tags": ["fire", "earth", "water", "air"]
     }
 ]

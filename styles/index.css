@@ -65,6 +65,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* ==================================================================*/
+/* Header elements*/
+/* ==================================================================*/
+
 header {
 	background-image: url("../img/index/leish6.png");
 	background-size: cover;
@@ -101,6 +105,9 @@ header h2 {
     font-style: italic;
 }
 
+/* ==================================================================*/
+/* Upper navigation bar elements*/
+/* ==================================================================*/
 .top-menu {
     display: flex;
     justify-content: space-between;
@@ -160,6 +167,30 @@ nav .dropdown-content a:hover {
     color: #333;
 }
 
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #940fc8;
+    padding: 5px;
+    text-decoration: none;
+}
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -189,6 +220,10 @@ nav .dropdown-content a:hover {
     background-color: #111;
 }
 
+/* ==================================================================*/
+/* REDDIT-LIKE elements*/
+/* ==================================================================*/
+
 .reddit-like {
     display: flex;
     justify-content: center;
@@ -202,7 +237,7 @@ nav .dropdown-content a:hover {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
-
+    
 }
 
 .left-column {
@@ -238,30 +273,6 @@ nav .dropdown-content a:hover {
     margin: 10px 0 0;
 }
 
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    display: block;
-    color: #940fc8;
-    padding: 5px;
-    text-decoration: none;
-}
-
 footer {
     background-image: url("../img/logos/logos.png");
     background-size: 100% auto;
@@ -284,3 +295,23 @@ footer {
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+#filters {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px;
+    margin: 5px;
+    background-color: #940fc8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #111;
+}
+
+
