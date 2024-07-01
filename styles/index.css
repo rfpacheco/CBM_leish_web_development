@@ -167,6 +167,8 @@ nav .dropdown-content a:hover {
     color: #333;
 }
 
+/* Navigation dropdown elements */
+
 .dropdown {
     display: inline-block;
     position: relative;
@@ -198,6 +200,7 @@ nav .dropdown-content a:hover {
     max-width: 70%;
 }
 
+/* Navigation search bar element */
 .search-bar input[type=text] {
     flex:1;
     width: 1000px;
@@ -255,6 +258,8 @@ nav .dropdown-content a:hover {
     padding-left: 20px;
 }
 
+/* Post elements in the center-column */
+
 .post {
     background-color: rgb(125, 118, 128, 0.4);
     margin: 10px 0;
@@ -273,6 +278,9 @@ nav .dropdown-content a:hover {
     margin: 10px 0 0;
 }
 
+/* ==================================================================*/
+/* Footer element */
+/* ==================================================================*/
 footer {
     background-image: url("../img/logos/logos.png");
     background-size: 100% auto;
@@ -281,7 +289,9 @@ footer {
     margin-top: auto;
 }
 
-
+/* ==================================================================*/
+/* Calendar and Twitter elements */
+/* ==================================================================*/
 #calendar-container, #twitter-widget-container {
     margin-top: 20px;
     padding: 10px;
@@ -296,6 +306,9 @@ footer {
     border-bottom: 1px solid #ddd;
 }
 
+/* ==================================================================*/
+/* Filters elements */
+/* ==================================================================*/
 #filters {
     margin-bottom: 20px;
 }
@@ -313,5 +326,3 @@ footer {
 .filter-btn:hover {
     background-color: #111;
 }
-
-
