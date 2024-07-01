@@ -6,8 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
             right: 'month,agendaWeek,agendaDay'
         },
         defaultDate: new Date(),
+        defaultView: 'basicWeek',
         navLinks: true,
         editable: true,
-        eventLimit: true
+        eventLimit: true,
+        firstDay: 1
     });
+
+    // Modify the font size of the calendar
+    $('#calendar').css('font-size', '12px');
 });

@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 * {
-    box-sizing: content-box;
+    box-sizing: border-box;
     /* border: 1px solid red !important; */
 }
 
@@ -56,6 +56,18 @@ table {
 /* ==================================================================*/
 /* Until here is the reset*/
 
+/* ==================================================================*/
+/* General elements */
+/* ==================================================================*/
+i {
+    font-style: italic;
+
+}
+
+
+/* ==================================================================*/
+/* Body elements */
+/* ==================================================================*/
 body {
     margin: 0;
     padding: 0;
@@ -244,17 +256,17 @@ nav .dropdown-content a:hover {
 }
 
 .left-column {
-    width: 20%;
+    width: 15%;
 }
 
 .center-column {
-    width: 60%;
+    width: 70%;
     height: 1000px;
     overflow: scroll;
 }
 
 .right-column {
-    width: 20%;
+    width: 15%;
     padding-left: 20px;
 }
 
@@ -300,11 +312,22 @@ footer {
     background-color: #f9f9f9;
 }
 
-#calendar-container h3, #twitter-widget-container h3 {
+#calendar-container h3 {
     margin: 0 0 10px 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+#calendar-container {
+    width: 100%;
+    height: 30%;
+}
+
+#calendar {
+    width: 95%;
+    height: 50%;
+}
+
 
 /* ==================================================================*/
 /* Filters elements */
