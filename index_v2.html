@@ -100,93 +100,21 @@
         <p>SOMTHING WRITE IN FOOTER</p>
     </footer>
 
+    <!-- JavaScript section -->
+    <!-- ===================================================================================================== -->
+    <!-- Call javascript on the web-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- ===================================================================================================== -->
+    <!-- Call fullcalendar widget javascript requirements-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="./scripts/calendar.js"></script>
+    <script src="./scripts/calendar.js"></script>  <!-- Call our custom calendar script -->
+    <!-- ===================================================================================================== -->
+    <!-- Call twitter widget javascript-->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script>
-        // Force reload Twitter widgets
-        window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-
-            t._e = [];
-            t.ready = function(f) {
-                t._e.push(f);
-            };
-
-            return t;
-        }(document, "script", "twitter-wjs"));
-
-        twttr.ready(function (twttr) {
-            twttr.widgets.load();
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-    const postsContainer = document.getElementById('posts-container');
-
-    fetch('./data/posts.json')
-        .then(response => response.json())
-        .then(posts => {
-            posts.forEach(post => {
-                const postDiv = document.createElement('div');
-                postDiv.classList.add('post');
-                postDiv.setAttribute('data-tags', post.tags.join(','));
-
-                const postTitle = document.createElement('h3');
-                postTitle.textContent = post.title;
-
-                const postDescription = document.createElement('p');
-                postDescription.textContent = post.description;
-
-                const postTags = document.createElement('p');
-                postTags.textContent = 'Tags: ' + post.tags.join(', ');
-
-                postDiv.appendChild(postTitle);
-                postDiv.appendChild(postDescription);
-                postDiv.appendChild(postTags);
-
-                postsContainer.appendChild(postDiv);
-            });
-
-            // Add event listeners for filtering
-            const checkboxes = document.querySelectorAll('.filters .opt-in');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    const selectedTags = Array.from(checkboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value);
-
-                    console.log('Selected tags:', selectedTags);  // Debugging output
-                    filterPosts(selectedTags);
-                });
-            });
-
-            function filterPosts(selectedTags) {
-                const postsElements = document.querySelectorAll('.post');
-
-                postsElements.forEach(post => {
-                    const postTags = post.getAttribute('data-tags').split(',');
-                    console.log('Post tags:', postTags);  // Debugging output
-
-                    if (selectedTags.length === 0 || selectedTags.some(tag => postTags.includes(tag))) {
-                        post.style.display = 'block';
-                        console.log('Displaying post with tags:', postTags);  // Debugging output
-                    } else {
-                        post.style.display = 'none';
-                        console.log('Hiding post with tags:', postTags);  // Debugging output
-                    }
-                });
-            }
-        })
-        .catch(error => console.error('Error loading posts:', error));
-});
-    </script>
+    <script src="./scripts/twitter_updater.js"></script> <!-- Call out twitter updater -->
+    <!-- ===================================================================================================== -->
+    <!-- Call our custom posts and filters script -->
+    <script src="./scripts/posts_and_filters.js"></script>
 </body>
 </html>

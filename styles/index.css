@@ -246,7 +246,6 @@ nav .dropdown-content a:hover {
 /* ==================================================================*/
 /* REDDIT-LIKE elements*/
 /* ==================================================================*/
-
 .reddit-like {
     display: flex;
     justify-content: center;
@@ -262,7 +261,6 @@ nav .dropdown-content a:hover {
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
     margin: 3px;
-    
 }
 
 .left-column {
@@ -271,7 +269,7 @@ nav .dropdown-content a:hover {
 
 .center-column {
     width: 65%;
-    height: 1000px;
+    height: 1025px;
     overflow-y: scroll;
     padding: 0 10px;
 }
