@@ -2,76 +2,76 @@
     {
         "title": "Post Title 1",
         "description": "Post Description 1",
-        "tags": ["fire"]
+        "tags": ["L. major"]
     },
     {
         "title": "Post Title 2",
         "description": "Post Description 2",
-        "tags": ["earth"]
+        "tags": ["L. infantum"]
     },
     {
         "title": "Post Title 3",
         "description": "Post Description 3",
-        "tags": ["water"]
+        "tags": ["L. donovani"]
     },
     {
         "title": "Post Title 4",
         "description": "Post Description 4",
-        "tags": ["air"]
+        "tags": ["L. braziliensis"]
     },
     {
         "title": "Post Title 5",
         "description": "Post Description 5",
-        "tags": ["fire", "earth"]
+        "tags": ["L. major", "L. infantum"]
     },
     {
         "title": "Post Title 6",
         "description": "Post Description 6",
-        "tags": ["water", "air"]
+        "tags": ["L. donovani", "L. braziliensis"]
     },
     {
         "title": "Post Title 7",
         "description": "Post Description 7",
-        "tags": ["fire", "water"]
+        "tags": ["L. major", "L. infantum", "L. donovani"]
     },
     {
         "title": "Post Title 8",
         "description": "Post Description 8",
-        "tags": ["earth", "air"]
+        "tags": ["L. major", "L. infantum", "L. donovani", "L. braziliensis"]
     },
     {
         "title": "Post Title 9",
         "description": "Post Description 9",
-        "tags": ["fire", "earth", "water"]
+        "tags": ["L. major", "L. braziliensis"]
     },
     {
         "title": "Post Title 10",
         "description": "Post Description 10",
-        "tags": ["earth", "water", "air"]
+        "tags": ["L. infantum", "L. donovani"]
     },
     {
         "title": "Post Title 11",
         "description": "Post Description 11",
-        "tags": ["fire", "air"]
+        "tags": ["L. major", "L. infantum", "L. donovani"]
     },
     {
         "title": "Post Title 12",
         "description": "Post Description 12",
-        "tags": ["fire", "earth", "air"]
+        "tags": ["L. major", "L. infantum", "L. donovani", "L. braziliensis"]
     },
     {
         "title": "Post Title 13",
         "description": "Post Description 13",
-        "tags": ["water", "air", "fire"]
+        "tags": ["L. braziliensis", "L. donovani"]
     },
     {
         "title": "Post Title 14",
         "description": "Post Description 14",
-        "tags": ["earth", "water", "fire"]
+        "tags": ["L. major", "L. infantum", "L. donovani", "L. braziliensis"]
     },
     {
         "title": "Post Title 15",
         "description": "Post Description 15",
-        "tags": ["fire", "earth", "water", "air"]
+        "tags": ["L. major", "L. infantum", "L. donovani", "L. braziliensis"]
     }
 ]
