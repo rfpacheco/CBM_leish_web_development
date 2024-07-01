@@ -272,7 +272,7 @@ nav .dropdown-content a:hover {
 .center-column {
     width: 65%;
     height: 1000px;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 0 10px;
 }
 

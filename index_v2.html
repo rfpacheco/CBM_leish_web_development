@@ -57,21 +57,25 @@
     <div class="reddit-like">
         <aside class="left-column">
             <h2>Filters</h2>
-            <div id="filters">
+            <div class="filters">
                 <ul>
-                    <li><input type="checkbox" name="my-checkbox" class="opt-in"><label for="opt-in">Show all</label></li>
-                    <li><input type="checkbox" name="my-checkbox" class="opt-in"><label for="opt-in"><i>L. major</i></label></li>
-                    <li><input type="checkbox" name="my-checkbox" class="opt-in"><label for="opt-in"><i>L. infantum</i></label></li>
-                    <li><input type="checkbox" name="my-checkbox" class="opt-in"><label for="opt-in"><i>L. donovani</i></label></li>
-                    <li><input type="checkbox" name="my-checkbox" class="opt-in"><label for="opt-in"><i>L. braziliensis</i></label></li>
+                    <li>
+                        <input type="checkbox" id="filter-major" class="opt-in" value="L. major">
+                        <label for="filter-major"><i>L. major</i></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="filter-infantum" class="opt-in" value="L. infantum">
+                        <label for="filter-infantum"><i>L. infantum</i></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="filter-donovani" class="opt-in" value="L. donovani">
+                        <label for="filter-donovani"><i>L. donovani</i></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="filter-braziliensis" class="opt-in" value="L. braziliensis">
+                        <label for="filter-braziliensis"><i>L. braziliensis</i></label>
+                    </li>
                 </ul>
-                <!-- <ul>
-                    <li><button class="filter-btn" data-filter="all">Show All</button></li>
-                    <li><button class="filter-btn" data-filter="fire">Fire</button></li>
-                    <li><button class="filter-btn" data-filter="earth">Earth</button></li>
-                    <li><button class="filter-btn" data-filter="water">Water</button></li>
-                    <li><button class="filter-btn" data-filter="air">Air</button></li>
-                </ul> -->
             </div>
         </aside>
 
@@ -124,61 +128,65 @@
             twttr.widgets.load();
         });
 
-        // Fetch posts from JSON and display them
         document.addEventListener("DOMContentLoaded", function() {
-            const postsContainer = document.getElementById('posts-container');
+    const postsContainer = document.getElementById('posts-container');
 
-            fetch('./data/posts.json')
-                .then(response => response.json())
-                .then(posts => {
-                    posts.forEach(post => {
-                        const postDiv = document.createElement('div');
-                        postDiv.classList.add('post');
-                        // Use the tags from the post
-                        postDiv.setAttribute('data-tags', post.tags.join(' '));
+    fetch('./data/posts.json')
+        .then(response => response.json())
+        .then(posts => {
+            posts.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('post');
+                postDiv.setAttribute('data-tags', post.tags.join(','));
 
-                        const postTitle = document.createElement('h3');
-                        postTitle.textContent = post.title;
+                const postTitle = document.createElement('h3');
+                postTitle.textContent = post.title;
 
-                        const postDescription = document.createElement('p');
-                        postDescription.textContent = post.description;
+                const postDescription = document.createElement('p');
+                postDescription.textContent = post.description;
 
-                        const postTags = document.createElement('p');
-                        postTags.textContent = 'Tags: ' + post.tags.join(', ');
+                const postTags = document.createElement('p');
+                postTags.textContent = 'Tags: ' + post.tags.join(', ');
 
-                        postDiv.appendChild(postTitle);
-                        postDiv.appendChild(postDescription);
-                        postDiv.appendChild(postTags);
+                postDiv.appendChild(postTitle);
+                postDiv.appendChild(postDescription);
+                postDiv.appendChild(postTags);
 
-                        postsContainer.appendChild(postDiv);
-                    });
+                postsContainer.appendChild(postDiv);
+            });
 
-                    // Add event listeners for filtering
-                    const filterButtons = document.querySelectorAll('.filter-btn');
-                    const postsElements = document.querySelectorAll('.post');
+            // Add event listeners for filtering
+            const checkboxes = document.querySelectorAll('.filters .opt-in');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const selectedTags = Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
 
-                    filterButtons.forEach(button => {
-                        button.addEventListener('click', () => {
-                            const filter = button.getAttribute('data-filter');
-                            if (filter === 'all') {
-                                postsElements.forEach(post => {
-                                    post.style.display = 'block';
-                                });
-                            } else {
-                                postsElements.forEach(post => {
-                                    const tags = post.getAttribute('data-tags').split(' ');
-                                    if (tags.includes(filter)) {
-                                        post.style.display = 'block';
-                                    } else {
-                                        post.style.display = 'none';
-                                    }
-                                });
-                            }
-                        });
-                    });
-                })
-                .catch(error => console.error('Error loading posts:', error));
-        });
+                    console.log('Selected tags:', selectedTags);  // Debugging output
+                    filterPosts(selectedTags);
+                });
+            });
+
+            function filterPosts(selectedTags) {
+                const postsElements = document.querySelectorAll('.post');
+
+                postsElements.forEach(post => {
+                    const postTags = post.getAttribute('data-tags').split(',');
+                    console.log('Post tags:', postTags);  // Debugging output
+
+                    if (selectedTags.length === 0 || selectedTags.some(tag => postTags.includes(tag))) {
+                        post.style.display = 'block';
+                        console.log('Displaying post with tags:', postTags);  // Debugging output
+                    } else {
+                        post.style.display = 'none';
+                        console.log('Hiding post with tags:', postTags);  // Debugging output
+                    }
+                });
+            }
+        })
+        .catch(error => console.error('Error loading posts:', error));
+});
     </script>
 </body>
 </html>
