@@ -90,7 +90,7 @@ header {
 	align-items: center;
     position: fixed;
     width: 100%;
-    z-index: 5;
+    z-index: 6;
 }
 
 header ul {
@@ -132,7 +132,7 @@ header h2 {
     width: 100%;
     top: 50px;
     height: 40px;
-    z-index: 5;
+    z-index: 6;
 }
 
 nav {
@@ -260,11 +260,19 @@ nav .dropdown-content a:hover {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
-    margin: 3px;
+    margin: 7px 3px 3px 3px;
 }
 
 .left-column {
     width: 15%;
+}
+
+.left-column h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 3px solid #ddd;
 }
 
 .center-column {
@@ -305,11 +313,45 @@ nav .dropdown-content a:hover {
 /* Footer element */
 /* ==================================================================*/
 footer {
-    background-image: url("../img/logos/logos.png");
-    background-size: 100% auto;
-    background-position: center;
-    height: 100px;
-    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.contact-info a, .contact-info span {
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.contact-info .icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.social-media {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+
+#bottom-banner {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0;
 }
 
 /* ==================================================================*/
