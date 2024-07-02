@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const postDiv = document.createElement('div');
                 postDiv.classList.add('post');
                 postDiv.setAttribute('data-tags', post.tags.join(','));
+                postDiv.setAttribute('data-date', post.date);
 
                 const postTitle = document.createElement('h3');
                 postTitle.textContent = post.title;
@@ -18,41 +19,63 @@ document.addEventListener("DOMContentLoaded", function() {
                 const postTags = document.createElement('p');
                 postTags.textContent = 'Tags: ' + post.tags.join(', ');
 
+                const postDate = document.createElement('p');
+                postDate.textContent = 'Date: ' + post.date;
+
                 postDiv.appendChild(postTitle);
                 postDiv.appendChild(postDescription);
                 postDiv.appendChild(postTags);
+                postDiv.appendChild(postDate);
 
                 postsContainer.appendChild(postDiv);
             });
 
             // Add event listeners for filtering
+            // Add event listeners for filtering and sorting
             const checkboxes = document.querySelectorAll('.filters .opt-in');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    const selectedTags = Array.from(checkboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value);
+            const startDateInput = document.getElementById('start-date');
+            const endDateInput = document.getElementById('end-date');
+            const sortOrderSelect = document.getElementById('sort-order');
 
-                    console.log('Selected tags:', selectedTags);  // Debugging output
-                    filterPosts(selectedTags);
-                });
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterAndSortPosts);
             });
 
-            function filterPosts(selectedTags) {
-                const postsElements = document.querySelectorAll('.post');
+            startDateInput.addEventListener('change', filterAndSortPosts);
+            endDateInput.addEventListener('change', filterAndSortPosts);
+            sortOrderSelect.addEventListener('change', filterAndSortPosts);
+
+            function filterAndSortPosts() {
+                const selectedTags = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                const startDate = startDateInput.value;
+                const endDate = endDateInput.value;
+                const sortOrder = sortOrderSelect.value;
+
+                const postsElements = Array.from(document.querySelectorAll('.post'));
 
                 postsElements.forEach(post => {
                     const postTags = post.getAttribute('data-tags').split(',');
-                    console.log('Post tags:', postTags);  // Debugging output
+                    const postDate = post.getAttribute('data-date');
 
-                    if (selectedTags.length === 0 || selectedTags.every(tag => postTags.includes(tag))) {
+                    const tagMatch = selectedTags.length === 0 || selectedTags.every(tag => postTags.includes(tag));
+                    const dateMatch = (!startDate || postDate >= startDate) && (!endDate || postDate <= endDate);
+
+                    if (tagMatch && dateMatch) {
                         post.style.display = 'block';
-                        console.log('Displaying post with tags:', postTags);  // Debugging output
                     } else {
                         post.style.display = 'none';
-                        console.log('Hiding post with tags:', postTags);  // Debugging output
                     }
                 });
+
+                postsElements.sort((a, b) => {
+                    const dateA = new Date(a.getAttribute('data-date'));
+                    const dateB = new Date(b.getAttribute('data-date'));
+                    return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+                });
+
+                postsElements.forEach(post => postsContainer.appendChild(post));
             }
         })
         .catch(error => console.error('Error loading posts:', error));
