@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const postTags = post.getAttribute('data-tags').split(',');
                     console.log('Post tags:', postTags);  // Debugging output
 
-                    if (selectedTags.length === 0 || selectedTags.some(tag => postTags.includes(tag))) {
+                    if (selectedTags.length === 0 || selectedTags.every(tag => postTags.includes(tag))) {
                         post.style.display = 'block';
                         console.log('Displaying post with tags:', postTags);  // Debugging output
                     } else {
