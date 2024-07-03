@@ -31,8 +31,11 @@ app.get('/html/results.html', (req, res) => {
 
 // Search endpoint
 app.get('/search', (req, res) => {
-    let sql = `SELECT * FROM infantum`;
-    db.query(sql, (err, results) => {
+    let query = req.query.query;
+    let sql = `SELECT * FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?`;
+    let values = [`%${query}%`, `%${query}%`, `%${query}%`];
+
+    db.query(sql, values, (err, results) => {
         if (err) throw err;
         res.json(results);
     });
