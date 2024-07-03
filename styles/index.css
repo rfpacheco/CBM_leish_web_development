@@ -229,9 +229,8 @@ nav .dropdown-content a:hover {
     margin-right: 10px;
     box-sizing: border-box;
 }
-
+/* 
 .search-bar button {
-    /* padding: 5px 20px; */
     margin: 5px 20;
     background-color: #940fc8;
     color: white;
@@ -241,7 +240,7 @@ nav .dropdown-content a:hover {
 
 .search-bar button:hover {
     background-color: #111;
-}
+} */
 
 /* ==================================================================*/
 /* REDDIT-LIKE elements*/
