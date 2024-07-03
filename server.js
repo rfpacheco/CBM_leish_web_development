@@ -29,6 +29,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Serve HTML files from the 'html' directory
+app.get('/results.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'results.html'));
+});
+
 // Search endpoint
 app.get('/search', (req, res) => {
     let query = req.query.query;
