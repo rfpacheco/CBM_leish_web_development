@@ -15,9 +15,7 @@
 
     <div class="top-menu">
         <div class="search-bar">
-            <form id="search-form" action="/html/results.html" method="get">
-                <input type="text" name="query" placeholder="Search..">
-                <button type="submit">Search</button>
+            <input type="text" id="live-search-bar" placeholder="Search..">
         </div>
         <nav>
             <div class="dropdown">
@@ -153,6 +151,17 @@
     <!-- ===================================================================================================== -->
     <!-- Call our custom posts and filters script -->
     <script src="./scripts/posts_and_filters.js"></script>
+       <!-- Script to handle live search and redirect -->
+    <script>
+    $(document).ready(function() {
+        $('#live-search-bar').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                window.location.href = '/html/results.html?query=' + encodeURIComponent(query);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
 
