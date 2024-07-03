@@ -9,8 +9,8 @@ const app = express();
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'leish',
-    password: 'Leishmania1',
-    database: 'leishmania'
+    password: 'Leishmania_1',
+    database: 'Leishmania'
 });
 
 db.connect((err) => {
@@ -24,25 +24,15 @@ db.connect((err) => {
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '.')));
 
-// Serve HTML file
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 // Serve HTML files from the 'html' directory
-app.get('/results.html', (req, res) => {
+app.get('/html/results.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'results.html'));
 });
 
 // Search endpoint
 app.get('/search', (req, res) => {
-    let query = req.query.query;
-    // let sql = `SELECT * FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?`;
-    // let values = [`%${query}%`, `%${query}%`, `%${query}%`];
     let sql = `SELECT * FROM infantum`;
-    let values = [];
-
-    db.query(sql, values, (err, results) => {
+    db.query(sql, (err, results) => {
         if (err) throw err;
         res.json(results);
     });

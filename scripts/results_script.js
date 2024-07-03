@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var query = new URLSearchParams(window.location.search).get('query');
-    $.get('/search', { query: query }, function(data) {
+    $.get('/search', function(data) {
         var tbody = $('#results-table tbody');
         tbody.empty();
         data.forEach(function(row) {
