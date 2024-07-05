@@ -1,16 +1,37 @@
 $(document).ready(function() {
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
     function search(query) {
         $.get('/search', { query: query }, function(data) {
             var tbody = $('#results-table tbody');
             tbody.empty();
-            data.forEach(function(row) {
-                var tr = $('<tr>');
-                tr.append($('<td>').text(row.id));
-                tr.append($('<td>').text(row.cdsid));
-                tr.append($('<td>').text(row.ortholog));
-                tr.append($('<td>').text(row.associatedfunction));
-                tbody.append(tr);
-            });
+
+            // Clear previous table headers
+            $('#results-table thead tr').empty();
+
+            if (data.length > 0) {
+                // Determine columns dynamically based on first result
+                var columns = Object.keys(data[0]);
+                var thead = $('#results-table thead tr');
+
+                columns.forEach(function(col) {
+                    thead.append($('<th>').text(col));
+                });
+
+                data.forEach(function(row) {
+                    var tr = $('<tr>');
+                    columns.forEach(function(col) {
+                        tr.append($('<td>').text(row[col]));
+                    });
+                    tbody.append(tr);
+                });
+            }
         });
     }
 
@@ -19,6 +40,7 @@ $(document).ready(function() {
     if (initialQuery) {
         $('#live-search-bar').val(initialQuery);
         search(initialQuery);
+        $('#live-search-bar').focus();
     }
 
     $('#live-search-bar').on('input', function() {
