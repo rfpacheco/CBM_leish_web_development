@@ -10,24 +10,22 @@ $(document).ready(function() {
     function search(query) {
         $.get('/search', { query: query }, function(data) {
             var tbody = $('#results-table tbody');
+            var thead = $('#results-table thead tr');
             tbody.empty();
-
-            // Clear previous table headers
-            $('#results-table thead tr').empty();
+            thead.empty();
 
             if (data.length > 0) {
                 // Determine columns dynamically based on first result
                 var columns = Object.keys(data[0]);
-                var thead = $('#results-table thead tr');
-
+                
                 columns.forEach(function(col) {
-                    thead.append($('<th>').text(col));
+                    thead.append($('<th>').attr('data-header', col).text(col));
                 });
 
                 data.forEach(function(row) {
                     var tr = $('<tr>');
                     columns.forEach(function(col) {
-                        tr.append($('<td>').text(row[col]));
+                        tr.append($('<td>').attr('data-header', col).text(row[col]));
                     });
                     tbody.append(tr);
                 });

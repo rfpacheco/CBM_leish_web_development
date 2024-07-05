@@ -398,6 +398,10 @@ footer {
     table-layout: fixed;
 }
 
+#sql-column {
+    overflow-x: auto;
+}
+
 #results-table th, #results-table td {
     border: 1px solid #ddd;
     padding: 8px;
@@ -435,25 +439,62 @@ footer {
     padding-right: 16px;
 }
 
-/* Specific column widths */
+
 #results-table th:nth-child(1), #results-table td:nth-child(1) {
+    max-width: 100px; 
+    width: 100px;
+}
+
+/* Specific column widths for "ID" column */
+
+#results-table th[data-header='source_table'], #results-table td[data-header='source_table'] {
     max-width: 100px; /* ID column */
     width: 100px;
 }
 
-#results-table th:nth-child(2), #results-table td:nth-child(2) {
+#results-table th[data-header='id'], #results-table td[data-header='id'] {
+    max-width: 50px; /* ID column */
+    width: 50px;
+}
+
+#results-table th[data-header="cdsid"], #results-table td[data-header="cdsid"] {
     max-width: 250px; /* CDS ID column */
+    width: 200px;
+}
+
+#results-table th[data-header="ortholog"], #results-table td[data-header="ortholog"] {
+    max-width: 200px; /* Ortholog column */
+    width: 100px;
+}
+
+#results-table th[data-header="associatedfunction"], #results-table td[data-header="associatedfunction"] {
+    max-width: 300px; /* Associated Function column */
+    width: 300px;
+}
+/* 
+#results-table th:nth-child(1), #results-table td:nth-child(1) {
+    max-width: 100px; 
+    width: 100px;
+}
+
+#results-table th:nth-child(2), #results-table td:nth-child(2) {
+    max-width: 100px; 
+    width: 100px;
+}
+
+#results-table th:nth-child(2), #results-table td:nth-child(2) {
+    max-width: 250px; 
     width: 250px;
 }
 
 #results-table th:nth-child(3), #results-table td:nth-child(3) {
-    max-width: 250px; /* Ortholog column */
+    max-width: 250px; 
     width: 250px;
 }
 
 #results-table th:nth-child(4), #results-table td:nth-child(4) {
-    max-width: 300px; /* Associated Function column */
+    max-width: 300px; 
     width: 300px;
 }
-
+ */
 

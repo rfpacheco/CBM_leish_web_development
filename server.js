@@ -30,23 +30,25 @@ app.get('/html/results.html', (req, res) => {
 });
 
 // Search endpoint
-// Search endpoint
 app.get('/search', (req, res) => {
     let query = req.query.query;
-    let sql = `
-        SELECT 'infantum' AS source_table, id, cdsid, ortholog, associatedfunction FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?
-        UNION ALL
-        SELECT 'donovani' AS source_table, id, cdsid, ortholog, associatedfunction FROM donovani WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?
-        UNION ALL
-        SELECT 'braziliensis' AS source_table, id, cdsid, ortholog, associatedfunction FROM braziliensis WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?
-        UNION ALL
-        SELECT 'major' AS source_table, id, TranscriptID AS cdsid, NULL AS ortholog, AssociatedFunction AS associatedfunction FROM major WHERE TranscriptID LIKE ? OR cdsid LIKE ? OR AssociatedFunction LIKE ?`;
+    let sqls = [
+        { table: 'infantum', sql: 'SELECT "infantum" AS source_table, id, cdsid, ortholog, associatedfunction FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
+        { table: 'donovani', sql: 'SELECT "donovani" AS source_table, id, cdsid, ortholog, associatedfunction FROM donovani WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
+        { table: 'braziliensis', sql: 'SELECT "braziliensis" AS source_table, id, cdsid, ortholog, associatedfunction FROM braziliensis WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
+    ];
 
-    let values = Array(12).fill(`%${query}%`);
+    let values = Array(3).fill(`%${query}%`);
+    let results = [];
 
-    db.query(sql, values, (err, results) => {
-        if (err) throw err;
-        res.json(results);
+    sqls.forEach((sqlObj, index) => {
+        db.query(sqlObj.sql, values, (err, result) => {
+            if (err) throw err;
+            results = results.concat(result);
+            if (index === sqls.length - 1) {
+                res.json(results);
+            }
+        });
     });
 });
 
