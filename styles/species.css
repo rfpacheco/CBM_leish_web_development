@@ -248,7 +248,7 @@ main {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
-    margin: 7px 3px 3px 3px;
+    margin: 7px 3px 30px 3px;
 }
 
 .img-title img {
@@ -276,6 +276,61 @@ main {
     padding: 20px;
     margin-bottom: 10px;
     text-align: justify;
+}
+
+/* ==================================================================*/
+/* Table structure */
+/* ==================================================================*/
+
+/* Styles for the downloads table */
+#downloads-table table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 15px;
+    text-align: left;
+}
+
+#downloads-table th, #downloads-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+#downloads-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#downloads-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#downloads-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#downloads-table a {
+    color: #381E83;
+    text-decoration: none;
+}
+
+#downloads-table a:hover {
+    text-decoration: underline;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #ffffff;
+    background-color: rgb(77, 36, 83, 0.6);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download-button:hover {
+    background-color: #543b93;
+    color: #ffffff !important;
 }
 
 /* ==================================================================*/

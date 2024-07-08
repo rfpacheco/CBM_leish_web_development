@@ -7,7 +7,7 @@
         "path_file": "../data/downloads/infantum/files/LinJ_cbm_v1.fasta",
         "url": "<a href='https://www.nature.com/articles/s41598-017-18374-y' target='_blank'> González-de la Fuente <em>et al. </em>2017 (CBMSO)</a>",
         "raw_data": "<a href='https://www.ebi.ac.uk/ena/data/view/PRJEB20254'>PRJEB20254</a>",
-        "description": "Updated L.infantum JPCM5 genome sequence"
+        "description": "Updated L.infantum JPCM5 genome sequence."
     },
     {
         "type": "genomic",
@@ -43,21 +43,21 @@
         "type": "mitochondrial",
         "format": "fasta",
         "version": "-",
-        "year": "../data/downloads/infantum/files/LinJ_cbm_maxicircle.fasta",
+        "year": "-",
         "path_file": "../data/downloads/infantum/files/",
         "url": "<a href='https://www.mdpi.com/2073-4425/10/10/758/htm' target='_blank'> (Camacho <em>et al.</em>, 2019)</a>",
         "raw_data": "<a href='https://www.ebi.ac.uk/ena/data/view/PRJEB33887'>LR697137</a>",
-        "description": "L. infantum maxicircle sequence (Camacho et al., 2019)"
+        "description": "L. infantum maxicircle sequence."
     },
     {
         "type": "mitochondrial",
         "format": "gff",
         "version": "-",
-        "year": "../data/downloads/infantum/files/LinJ_cbm_maxicircle.gff",
+        "year": "-",
         "path_file": "../data/downloads/infantum/files/",
         "url": "<a href='https://www.mdpi.com/2073-4425/10/10/758/htm' target='_blank'> (Camacho <em>et al.</em>, 2019)</a>",
         "raw_data": "<a href='https://www.ebi.ac.uk/ena/data/view/PRJEB33887'>LR697137</a>",
-        "description": "L.infantum maxicircle annotation (Camacho et al., 2019)"
+        "description": "L.infantum maxicircle annotation."
     },
     {
         "type": "mitochondrial",
@@ -67,6 +67,6 @@
         "path_file": "../data/downloads/infantum/files/LinJ_cbm_circular_minicircles.fasta",
         "url": "<a href='https://www.mdpi.com/2073-4425/10/10/758/htm' target='_blank'> (Camacho <em>et al.</em>, 2019)</a>",
         "raw_data": "<a href='https://www.ebi.ac.uk/ena/data/view/PRJEB33887'>PRJEB33887</a>",
-        "description": "49 L.infantum minicircle sequences (Camacho et al., 2019)"
+        "description": "L.infantum minicircle sequences."
     }
 ]
