@@ -1,16 +1,17 @@
 const express = require('express');
-const mysql = require('mysql');
+const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 
-// Set up MySQL connection
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'leish',
-    password: 'Leishmania_1',
-    database: 'Leishmania'
+// Set up SQLite connection
+const db = new sqlite3.Database('./data/sql/leishmania.db', (err) => {
+    if (err) {
+        console.error('Error opening database', err);
+    } else {
+        console.log('Connected to SQLite database');
+    }
 });
 
 db.connect((err) => {
