@@ -14,13 +14,6 @@ const db = new sqlite3.Database('./data/sql/leishmania.db', (err) => {
     }
 });
 
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('MySQL Connected...');
-});
-
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '.')));
@@ -30,27 +23,42 @@ app.get('/html/results.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'results.html'));
 });
 
+
+// Helper function to run SQL queries with async/await
+const runQuery = (sql, params) => {
+    return new Promise((resolve, reject) => {
+        db.all(sql, params, (err, rows) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(rows);
+            }
+        });
+    });
+};
+
 // Search endpoint
-app.get('/search', (req, res) => {
+app.get('/search', async (req, res) => {
     let query = req.query.query;
     let sqls = [
         { table: 'infantum', sql: 'SELECT "infantum" AS source_table, id, cdsid, ortholog, associatedfunction FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
         { table: 'donovani', sql: 'SELECT "donovani" AS source_table, id, cdsid, ortholog, associatedfunction FROM donovani WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
-        { table: 'braziliensis', sql: 'SELECT "braziliensis" AS source_table, id, cdsid, ortholog, associatedfunction FROM braziliensis WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
+        { table: 'braziliensis', sql: 'SELECT "braziliensis" AS source_table, id, cdsid, ortholog, associatedfunction FROM braziliensis WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] }
     ];
 
-    let values = Array(3).fill(`%${query}%`);
+    let values = [`%${query}%`, `%${query}%`, `%${query}%`];
     let results = [];
 
-    sqls.forEach((sqlObj, index) => {
-        db.query(sqlObj.sql, values, (err, result) => {
-            if (err) throw err;
-            results = results.concat(result);
-            if (index === sqls.length - 1) {
-                res.json(results);
-            }
-        });
-    });
+    try {
+        for (let sqlObj of sqls) {
+            let rows = await runQuery(sqlObj.sql, values);
+            results = results.concat(rows);
+        }
+        res.json(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Database query error' });
+    }
 });
 
 const PORT = process.env.PORT || 3000;
