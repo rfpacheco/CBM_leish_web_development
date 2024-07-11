@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../styles/species.css" rel="stylesheet" type="text/css">
+    <title>L. braziliensis</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="../index.html"><h1>LEISH-NEW</h1></a></li>
+            <li><h2>Leishmania genome decoding</h2></li>
+        </ul>
+    </header>
+
+    <div class="top-menu">
+        <div class="search-bar">
+            <input type="text" id="live-search-bar" placeholder="Search..">
+        </div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">About Us</a>
+                <div class="dropdown-content">
+                    <a href="#">Our Mission</a>
+                    <a href="#">Our Team</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Species</a>
+                <div class="dropdown-content">
+                    <a href="./L_major.html"><i>L. major</i></a>
+                    <a href="./L_infantum.html"><i>L. infantum</i></a>
+                    <a href="./L_donovani.html"><i>L. donovani</i></a>
+                    <a href="./L_braziliensis.html"><i>L. braziliensis</i></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Downloads</a>
+                <div class="dropdown-content">
+                    <a href="#">Reports</a>
+                    <a href="#">Datasets</a>
+                    <a href="#">Software</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Extra</a>
+                <div class="dropdown-content">
+                    <a href="#">Blog</a>
+                    <a href="#">News</a>
+                    <a href="#">Events</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <section class="img-title">
+            <img src="../img/species/braziliensis.png" atl="L. braziliensis image">
+            <article>
+                <h1><i>L. braziliensis</i></h1>
+                <p>Protozoan parasite that causes mucocutaneous leishmaniasis, primarily affecting humans. This parasite is transmitted through the bites of infected female phlebotomine sandflies. Mucocutaneous leishmaniasis, also known as espundia, typically starts with skin lesions that can metastasize to mucous membranes, particularly those of the nose, mouth, and throat. Symptoms in humans initially include sores at the site of the sandfly bite, which can progress to destructive lesions of the mucous membranes, leading to severe disfigurement and functional impairment if left untreated.</p>
+                <p>The life cycle of <i>L. braziliensis</i> involves two main stages: the promastigote form, found in the sandfly vector, and the amastigote form, which multiplies within the host's macrophages. In the sandfly, the parasite exists as motile promastigotes. Upon transmission to the human host, the promastigotes are phagocytosed by macrophages and transform into non-motile amastigotes. These amastigotes then multiply within the macrophages, causing cell rupture and infection of new macrophages, leading to the dissemination of the parasite.</p>
+                <p>Control and prevention of leishmaniasis caused by <i>L. braziliensis</i> involve integrated approaches, including vector control through insecticides and environmental management, early diagnosis, and appropriate treatment of infected individuals. Current treatments for mucocutaneous leishmaniasis include antimonial compounds, amphotericin B, pentamidine, and miltefosine. The management of the disease is challenging due to issues such as drug resistance, adverse effects, and the need for prolonged treatment courses. Advances in molecular biology and genomics have deepened the understanding of <i>L. braziliensis</i>'s biology and pathogenic mechanisms, paving the way for potential new therapies and vaccines. Despite these scientific advances, mucocutaneous leishmaniasis remains a significant public health issue, particularly in endemic regions with limited access to healthcare and effective vector control measures.</p>
+            </article>
+                    
+        </section>
+        
+        <section id="downloads-table">
+            <!-- table like structure for donwloading files-->
+        </section>
+        <section class="jbrowser">
+            <!-- jbrowse here -->
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <a href="https://maps.app.goo.gl/Jsv6mqWxq4KYtYbq8" target="_blank">
+                <img src="../img/icons/map.png" alt="Location" class="icon"> Nicolás Cabrera, 1, Fuencarral-El Pardo, 28049 Madrid
+            </a>
+            <span>
+                <img src="../img/icons/phone-call.png" alt="Phone" class="icon">(+00) 000 000 000
+            </span>
+            <span>
+                <img src="../img/icons/email.png" alt="Mail" class="icon"><a href="mailto:example@example.com">example@example.com</a>
+            </span>
+        </div>
+        <div class="social-media">
+            <a href="https://x.com/WHO" target="_blank"><img src="../img/icons/twitter.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/@who" target="_blank"><img src="../img/icons/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/who" target="_blank"><img src="../img/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/company/world-health-organization" target="_blank"><img src="../img/icons/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <img id="bottom-banner" src="../img/logos/logos.png" alt="logos">
+
+    </footer>
+
+    <!-- JavaScript section -->
+    <!-- ===================================================================================================== -->
+    <script>
+    $(document).ready(function() {
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        $('#live-search-bar').on('input', debounce(function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                window.location.href = '/html/results.html?query=' + encodeURIComponent(query);
+            }
+        }, 1500)); // 500ms delay
+    });
+    </script>
+    <!-- ===================================================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../data/downloads/braziliensis/braziliensis.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableContainer = document.getElementById('downloads-table');
+    
+                    const table = document.createElement('table');
+                    table.innerHTML = `
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Reference Genome</th>
+                                <th>Version/Year</th>
+                                <th>Downloads</th>
+                                <th>Raw Data</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        ${data.map(item => `
+                            <tr>
+                                <td><strong>${item.type.toUpperCase()} (${item.format.toUpperCase()} file)</strong></td>
+                                <td>${item.url}</td>
+                                <td>${item.version}/${item.year}</td>
+                                <td><a href="${item.path_file}" class="download-button">DOWNLOAD</a></td>
+                                <td>${item.raw_data}</td>
+                                <td>${item.description}</td>
+                            </tr>`).join('')}
+                        </tbody>
+                    `;
+    
+                    tableContainer.appendChild(table);
+                })
+                .catch(error => console.error('Error fetching the JSON data:', error));
+        });
+    </script>
+</body>
+</html>

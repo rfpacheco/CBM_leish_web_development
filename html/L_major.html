@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../styles/species.css" rel="stylesheet" type="text/css">
+    <title>L. major</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="../index.html"><h1>LEISH-NEW</h1></a></li>
+            <li><h2>Leishmania genome decoding</h2></li>
+        </ul>
+    </header>
+
+    <div class="top-menu">
+        <div class="search-bar">
+            <input type="text" id="live-search-bar" placeholder="Search..">
+        </div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">About Us</a>
+                <div class="dropdown-content">
+                    <a href="#">Our Mission</a>
+                    <a href="#">Our Team</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Species</a>
+                <div class="dropdown-content">
+                    <a href="./L_major.html"><i>L. major</i></a>
+                    <a href="./L_infantum.html"><i>L. infantum</i></a>
+                    <a href="./L_donovani.html"><i>L. donovani</i></a>
+                    <a href="./L_braziliensis.html"><i>L. braziliensis</i></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Downloads</a>
+                <div class="dropdown-content">
+                    <a href="#">Reports</a>
+                    <a href="#">Datasets</a>
+                    <a href="#">Software</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Extra</a>
+                <div class="dropdown-content">
+                    <a href="#">Blog</a>
+                    <a href="#">News</a>
+                    <a href="#">Events</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <section class="img-title">
+            <img src="../img/species/major.png" alt="L. major image">
+            <article>
+                <h1><i>L. major</i></h1>
+                <p>Protozoan parasite that causes cutaneous leishmaniasis, primarily affecting humans and some animals. The parasite is transmitted to hosts through the bites of infected female phlebotomine sandflies. Cutaneous leishmaniasis, the most common form of the disease, typically results in skin lesions that can lead to significant scarring and disability. Symptoms in humans include the development of one or more sores at the site of the sandfly bite, which may progress to ulcers with a raised edge. These sores often heal spontaneously over months to years, but they can leave disfiguring scars and may be prone to secondary infections.</p>
+                <p>The life cycle of <i>L. major</i> involves two main stages: the promastigote form, which is found in the sandfly vector, and the amastigote form, which multiplies within the host's macrophages. In the sandfly, the parasite exists as motile promastigotes. Once transmitted to the human host, the promastigotes are phagocytosed by macrophages and transform into non-motile amastigotes. These amastigotes then multiply within the macrophages, leading to cell rupture and further spread of the infection to new macrophages.</p>
+                <p>Control and prevention of leishmaniasis caused by <i>L. major</i> involve integrated approaches, including sandfly vector control through insecticide use and environmental management, early diagnosis, and treatment of infected individuals. Current treatments for cutaneous leishmaniasis include topical and systemic therapies such as antimonial compounds, miltefosine, and amphotericin B. However, the effectiveness of treatments can vary, and issues such as drug resistance and adverse effects continue to pose significant challenges. Advances in molecular biology and genomics have enhanced the understanding of <i>L. major</i>'s biology and pathogenic mechanisms, offering hope for new therapeutic approaches and potential vaccines. Despite these advances, cutaneous leishmaniasis remains a significant public health issue, particularly in endemic regions where access to healthcare and effective vector control measures are limited.</p>
+
+            </article>
+                    
+        </section>
+        
+        <section id="downloads-table">
+            <!-- table like structure for donwloading files-->
+        </section>
+        <section class="jbrowser">
+            <!-- jbrowse here -->
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <a href="https://maps.app.goo.gl/Jsv6mqWxq4KYtYbq8" target="_blank">
+                <img src="../img/icons/map.png" alt="Location" class="icon"> Nicolás Cabrera, 1, Fuencarral-El Pardo, 28049 Madrid
+            </a>
+            <span>
+                <img src="../img/icons/phone-call.png" alt="Phone" class="icon">(+00) 000 000 000
+            </span>
+            <span>
+                <img src="../img/icons/email.png" alt="Mail" class="icon"><a href="mailto:example@example.com">example@example.com</a>
+            </span>
+        </div>
+        <div class="social-media">
+            <a href="https://x.com/WHO" target="_blank"><img src="../img/icons/twitter.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/@who" target="_blank"><img src="../img/icons/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/who" target="_blank"><img src="../img/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/company/world-health-organization" target="_blank"><img src="../img/icons/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <img id="bottom-banner" src="../img/logos/logos.png" alt="logos">
+
+    </footer>
+
+    <!-- JavaScript section -->
+    <!-- ===================================================================================================== -->
+    <script>
+    $(document).ready(function() {
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        $('#live-search-bar').on('input', debounce(function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                window.location.href = '/html/results.html?query=' + encodeURIComponent(query);
+            }
+        }, 1500)); // 500ms delay
+    });
+    </script>
+    <!-- ===================================================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../data/downloads/major/major.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableContainer = document.getElementById('downloads-table');
+    
+                    const table = document.createElement('table');
+                    table.innerHTML = `
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Reference Genome</th>
+                                <th>Version/Year</th>
+                                <th>Downloads</th>
+                                <th>Raw Data</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        ${data.map(item => `
+                            <tr>
+                                <td><strong>${item.type.toUpperCase()} (${item.format.toUpperCase()} file)</strong></td>
+                                <td>${item.url}</td>
+                                <td>${item.version}/${item.year}</td>
+                                <td><a href="${item.path_file}" class="download-button">DOWNLOAD</a></td>
+                                <td>${item.raw_data}</td>
+                                <td>${item.description}</td>
+                            </tr>`).join('')}
+                        </tbody>
+                    `;
+    
+                    tableContainer.appendChild(table);
+                })
+                .catch(error => console.error('Error fetching the JSON data:', error));
+        });
+    </script>
+</body>
+</html>
