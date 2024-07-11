@@ -16,40 +16,40 @@
 
     <div class="top-menu">
         <div class="search-bar">
-            <input type="text" id="live-search-bar" placeholder="Type to search..." value="">
+            <input type="text" id="live-search-bar" placeholder="Search..">
         </div>
         <nav>
             <div class="dropdown">
-                <a href="#">About Us</a>
+                <a class="strikethrough" href="#">About Us</a>
                 <div class="dropdown-content">
-                    <a href="#">Our Mission</a>
-                    <a href="#">Our Team</a>
-                    <a href="#">Contact</a>
+                    <a class="strikethrough" href="#">Our Mission</a>
+                    <a class="strikethrough" href="#">Our Team</a>
+                    <a class="strikethrough" href="#">Contact</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#">Species</a>
                 <div class="dropdown-content">
-                    <a href="./L_major.html"><i>L. major</i></a>
+                    <a href="./L_major.html"><i>L. major</i></a>    
                     <a href="./L_infantum.html"><i>L. infantum</i></a>
                     <a href="./L_donovani.html"><i>L. donovani</i></a>
                     <a href="./L_braziliensis.html"><i>L. braziliensis</i></a>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#">Downloads</a>
+                <a class="strikethrough" href="#">Downloads</a>
                 <div class="dropdown-content">
-                    <a href="#">Reports</a>
-                    <a href="#">Datasets</a>
-                    <a href="#">Software</a>
+                    <a class="strikethrough" href="#">Reports</a>
+                    <a class="strikethrough" href="#">Datasets</a>
+                    <a class="strikethrough" href="#">Software</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#">Extra</a>
+                <a class="strikethrough" href="#">Extra</a>
                 <div class="dropdown-content">
-                    <a href="#">Blog</a>
-                    <a href="#">News</a>
-                    <a href="#">Events</a>
+                    <a class="strikethrough" href="#">Blog</a>
+                    <a class="strikethrough" href="#">News</a>
+                    <a class="strikethrough" href="#">Events</a>
                 </div>
             </div>
         </nav>
@@ -62,7 +62,7 @@
                 <ul>
                     <li>
                         <input type="checkbox" id="filter-major" class="opt-in" value="major">
-                        <label for="filter-major"><i>L. major</i></label>
+                        <label for="filter-major"><i class="strikethrough">L. major</i><span style="color:red; text-transform:uppercase;"> no table</span></label>
                     </li>
                     <li>
                         <input type="checkbox" id="filter-infantum" class="opt-in" value="infantum">
@@ -77,23 +77,6 @@
                         <label for="filter-braziliensis"><i>L. braziliensis</i></label>
                     </li>
                 </ul>
-            </div>
-            <div class="date-selector">
-                <div class="date-unique">
-                    <label for="start-date">Start: Date:</label>
-                    <input type="date" id="start-date">
-                </div>
-                <div class="date-unique">
-                    <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date">
-                </div>
-                <div class="date-unique">
-                    <label for="sort-order">Sort By Date:</label>
-                    <select id="sort-order">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                    </select>
-                </div>
             </div>
         </aside>
         

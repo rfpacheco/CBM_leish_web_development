@@ -377,3 +377,15 @@ footer {
     display: block;
     margin: 20px auto 0;
 }
+
+/* ==================================================================*/
+/* TMP elements */
+/* ==================================================================*/
+.strikethrough {
+    text-decoration: line-through;
+}
+
+nav .dropdown-content a.strikethrough {
+    text-decoration: line-through; /* Ensure the strikethrough is applied */
+}
+

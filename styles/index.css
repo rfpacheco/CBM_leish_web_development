@@ -471,30 +471,15 @@ footer {
     max-width: 300px; /* Associated Function column */
     width: 300px;
 }
-/* 
-#results-table th:nth-child(1), #results-table td:nth-child(1) {
-    max-width: 100px; 
-    width: 100px;
+
+/* ==================================================================*/
+/* TMP elements */
+/* ==================================================================*/
+.strikethrough {
+    text-decoration: line-through;
 }
 
-#results-table th:nth-child(2), #results-table td:nth-child(2) {
-    max-width: 100px; 
-    width: 100px;
+nav .dropdown-content a.strikethrough {
+    text-decoration: line-through; /* Ensure the strikethrough is applied */
 }
-
-#results-table th:nth-child(2), #results-table td:nth-child(2) {
-    max-width: 250px; 
-    width: 250px;
-}
-
-#results-table th:nth-child(3), #results-table td:nth-child(3) {
-    max-width: 250px; 
-    width: 250px;
-}
-
-#results-table th:nth-child(4), #results-table td:nth-child(4) {
-    max-width: 300px; 
-    width: 300px;
-}
- */
 
