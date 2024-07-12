@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../styles/our_team.css" rel="stylesheet" type="text/css">
+    <title>L. infantum</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="../index.html"><h1>LEISH-NEW</h1></a></li>
+            <li><h2>Leishmania genome decoding</h2></li>
+        </ul>
+    </header>
+
+    <div class="top-menu">
+        <div class="search-bar">
+            <input type="text" id="live-search-bar" placeholder="Search..">
+        </div>
+        <nav>
+            <div class="dropdown">
+                <a class="strikethrough" href="#">About Us</a>
+                <div class="dropdown-content">
+                    <a class="strikethrough" href="#">Our Mission</a>
+                    <a class="strikethrough" href="#">Our Team</a>
+                    <a class="strikethrough" href="#">Contact</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Species</a>
+                <div class="dropdown-content">
+                    <a href="./L_major.html"><i>L. major</i></a>    
+                    <a href="./L_infantum.html"><i>L. infantum</i></a>
+                    <a href="./L_donovani.html"><i>L. donovani</i></a>
+                    <a href="./L_braziliensis.html"><i>L. braziliensis</i></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="strikethrough" href="#">Downloads</a>
+                <div class="dropdown-content">
+                    <a class="strikethrough" href="#">Reports</a>
+                    <a class="strikethrough" href="#">Datasets</a>
+                    <a class="strikethrough" href="#">Software</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="strikethrough" href="#">Extra</a>
+                <div class="dropdown-content">
+                    <a class="strikethrough" href="#">Blog</a>
+                    <a class="strikethrough" href="#">News</a>
+                    <a class="strikethrough" href="#">Events</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="intro-container">
+            <section class="intro-text">
+                <h2>Our Team</h2>
+                <p>
+                    Our laboratory focuses on the molecular genetics of parasites of the genus <i>Leishmania</i>, causative agents of leishmaniasis. In the last years, we have incorporated next generation sequencing techniques for addressing issues of gene expression and genomic plasticity in this protist. This WEB server was created as a means of sharing the data that we have generated with people having interests for these topics. We are working at the Dynamics and Genome Function department of the Centro de Biologia Molecular Severo Ochoa (CBMSO) a mixed centre between Universidad Autónoma de Madrid and CSIC (Spain)
+                </p>
+            </section>
+            <section class="carousel-container">
+                <div class="carousel-slide" id="carousel-slide">
+                    <img src="../img/lab_team/carousel/team_lab_2024.jpg" class="carousel-image" alt="Photo 1">
+                    <img src="../img/lab_team/carousel/team_lab_old.jpg" class="carousel-image" alt="Photo 2">
+                    <img src="../img/lab_team/carousel/leish_lab_pre2024.png" class="carousel-image" alt="Photo 3">
+                </div>
+                <button class="carousel-button prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-button next" onclick="changeSlide(1)">&#10095;</button>
+            </section>
+        </div>
+
+        <div class="meet-team">
+            <h2>Meet the Team</h2>
+            <section class="team-container">
+                <div class="team-member" onmouseover="showDetails('requena')">
+                    <img src="../img/lab_team/requena.png" alt="Requena">
+                </div>
+                <div class="team-member" onmouseover="showDetails('begona')">
+                    <img src="../img/lab_team/begona.png" alt="Begona">
+                </div>
+                <div class="team-member" onmouseover="showDetails('sandra')">
+                    <img src="../img/lab_team/sandra.png" alt="Sandra">
+                </div>
+                <div class="team-member" onmouseover="showDetails('javi')">
+                    <img src="../img/lab_team/javi.png" alt="Member 4">
+                </div>
+                <div class="team-member" onmouseover="showDetails('alex')">
+                    <img src="../img/lab_team/alex.png" alt="Member 5">
+                </div>
+                <div class="team-member" onmouseover="showDetails('ronny')">
+                    <img src="../img/lab_team/ronny.png" alt="Member 6">
+                </div>
+            </section>
+            <section class="details-container" id="details-container">
+                <img id="large-image" src="" alt="Large Member Image">
+                <article id="member-description"></article> 
+            </section>
+        </div>
+
+
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <a href="https://maps.app.goo.gl/Jsv6mqWxq4KYtYbq8" target="_blank">
+                <img src="../img/icons/map.png" alt="Location" class="icon"> Nicolás Cabrera, 1, Fuencarral-El Pardo, 28049 Madrid
+            </a>
+            <span>
+                <img src="../img/icons/phone-call.png" alt="Phone" class="icon">(+00) 000 000 000
+            </span>
+            <span>
+                <img src="../img/icons/email.png" alt="Mail" class="icon"><a href="mailto:example@example.com">example@example.com</a>
+            </span>
+        </div>
+        <div class="social-media">
+            <a href="https://x.com/WHO" target="_blank"><img src="../img/icons/twitter.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/@who" target="_blank"><img src="../img/icons/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/who" target="_blank"><img src="../img/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/company/world-health-organization" target="_blank"><img src="../img/icons/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <img id="bottom-banner" src="../img/logos/logos.png" alt="logos">
+
+    </footer>
+
+    <!-- JavaScript section -->
+    <!-- ===================================================================================================== -->
+     <script src="../scripts/team.js"></script>
+     <script src="../scripts/carousel_img.js"></script>
+</body>
+</html>
