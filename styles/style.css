@@ -1,0 +1,147 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+   -45deg,
+   rgb(0, 117, 255),
+   rgb(137, 58, 150),
+    rgb(0, 117, 255) 
+  );
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite; /* Adds an animation to the gradient */
+}
+
+/* ================================================================== */
+/* Header */
+/* ================================================================== */
+.header, .footer {
+  background-color: rgb(137, 58, 150);
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.header {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 3rem;
+  height: auto;
+}
+
+.logo div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.logo h4 {
+  font-weight: lighter;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* ================================================================== */
+/* Main content GRID SYSTEM*/
+/* ================================================================== */
+
+.main {
+  padding: 2em;
+  display: grid;
+  gap: 1em;
+}
+
+.content {
+  background-color: #f4f4f4;
+  padding: 2em;
+  border: 1px solid #ddd;
+}
+
+
+/* ================================================================== */
+/* Footer */
+/* ================================================================== */
+
+
+
+/* ================================================================== */
+/* Media queries */
+/* ================================================================== */
+
+/* 12-column grid for desktops */
+@media only screen and (min-width: 1025px) {
+  .main {
+      grid-template-columns: repeat(12, 1fr);
+  }
+
+  .content {
+      grid-column: span 12;
+  }
+}
+
+/* 6-column grid for tablets */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .main {
+      grid-template-columns: repeat(6, 1fr);
+  }
+
+  .content {
+      grid-column: span 6;
+  }
+}
+
+/* 3-column grid for smartphones */
+@media only screen and (max-width: 480px) {
+  .logo div {
+    display: none;
+  }
+
+  .logo img {
+    width: 4rem;
+  }
+
+  .main {
+      grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content {
+      grid-column: span 3;
+  }
+
+  .nav ul {
+      flex-direction: column;
+  }
+}
+
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

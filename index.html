@@ -3,89 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet" type="text/css">
     <link href="./styles/reset.css" rel="stylesheet" type="text/css">
-    <link href="./styles/index.css" rel="stylesheet" type="text/css">
-    <link href="./styles/header_v2.css" rel="stylesheet" type="text/css">
-    <link href="./styles/footer.css" rel="stylesheet" type="text/css">
-    <title>Leish-NEW</title>
+    <link href="./styles/style.css" rel="stylesheet" type="text/css">
+    <title>Leish-CBM</title>
 </head>
+
 <body>
-    <header>
-        <section id="top-menu">
-            <nav>
-                <div id="leish-lab-logo">
-                    <ul>
-                        <li><a href="#"><h1>LEISH-NEW</h1></a></li>
-                        <li><h2>Leishmania genome decoding</h2></li>
-                    </ul>
-                </div>
-
-                <div id="menu">
-                    <div class="dropdown">
-                        <a href="./pages/our_team.html">About Us</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Species</a>
-                        <!-- <div class="dropdown-content">
-                            <a href="./pages/L_major.html"><i>L. major</i></a>    
-                            <a href="./pages/L_infantum.html"><i>L. infantum</i></a>
-                            <a href="./pages/L_donovani.html"><i>L. donovani</i></a>
-                            <a href="./pages/L_braziliensis.html"><i>L. braziliensis</i></a>
-                        </div> -->
-                    </div>
-                    <div class="dropdown">
-                        <a class="strikethrough" href="#">Downloads</a>
-                        <!-- <div class="dropdown-content">
-                            <a class="strikethrough" href="#">Reports</a>
-                            <a class="strikethrough" href="#">Datasets</a>
-                            <a class="strikethrough" href="#">Software</a>
-                        </div> -->
-                    </div>
-                </div>
-
-                <div>
-                    <div id="CBM-logo"><a>CBM</a></div>
-                </div>
-            </nav>
-
-        <section id="header-img">
-        </section>
-
-        </section>
-    </header>
-
-
-
-
-
-    
-    <footer>
-        <div class="contact-info">
-            <a href="https://maps.app.goo.gl/Jsv6mqWxq4KYtYbq8" target="_blank">
-                <img src="./img/icons/map.png" alt="Location" class="icon"> Nicolás Cabrera, 1, Fuencarral-El Pardo, 28049 Madrid
-            </a>
-            <span>
-                <img src="./img/icons/phone-call.png" alt="Phone" class="icon">(+00) 000 000 000
-            </span>
-            <span>
-                <img src="./img/icons/email.png" alt="Mail" class="icon"><a href="mailto:example@example.com">example@example.com</a>
-            </span>
+  <header class="header">
+      <div class="logo">
+        <img src="./img/logos/leish_lab_logo.png" alt="Leish-Lab Logo">
+        <div>
+          <h1>Leish-CBM</h1>
+          <h4><i>Genome decoding</i></h4>
         </div>
-        <div class="social-media">
-            <a href="https://x.com/WHO" target="_blank"><img src="./img/icons/twitter.png" alt="Twitter"></a>
-            <a href="https://www.youtube.com/@who" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube"></a>
-            <a href="https://www.instagram.com/who" target="_blank"><img src="./img/icons/instagram.png" alt="Instagram"></a>
-            <a href="https://www.linkedin.com/company/world-health-organization" target="_blank"><img src="./img/icons/linkedin.png" alt="LinkedIn"></a>
-        </div>
-        <img id="bottom-banner" src="./img/logos/logos.png" alt="logos">
-    </footer>
-
-    <!-- JavaScript section -->
-    <!-- ===================================================================================================== -->
-    <!-- Call javascript on the web-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- ===================================================================================================== -->
+      </div>
+      <nav class="nav">
+          <ul>
+              <li><a href="#"><h5>About Us</h5></a></li>
+              <li><a href="#"><h5>Species</h5></a></li>
+              <li><a href="#"><h5>Downloads</h5></a></li>
+          </ul>
+      </nav>
+      <div id="language-selector">
+        <select>
+            <option value="en">ENG</option>
+            <option value="es">ESP</option>
+        </select>
+      </div>
+  </header>
+  <main class="main">
+      <div class="content">Content</div>
+  </main>
+  <footer class="footer">
+      Footer Content
+  </footer>
 </body>
 </html>
-
