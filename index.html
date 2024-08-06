@@ -14,21 +14,22 @@
         <img src="./img/logos/leish_lab_logo.png" alt="Leish-Lab Logo">
         <div>
           <h1>Leish-CBM</h1>
-          <h4><i>Genome decoding</i></h4>
+          <h4><i id="lang_genome_decoding">Genome decoding</i></h4>
         </div>
       </div>
       <nav class="nav">
           <ul>
-              <li><a href="#"><h5>About Us</h5></a></li>
-              <li><a href="#"><h5>Species</h5></a></li>
-              <li><a href="#"><h5>Downloads</h5></a></li>
+              <li><a href="#" id="lang_about_us"><h5>About Us</h5></a></li>
+              <li><a href="#" id="lang_species"><h5>Species</h5></a></li>
+              <li><a href="#" id="lang_downloads"><h5>Downloads</h5></a></li>
           </ul>
       </nav>
-      <div id="language-selector">
-        <select>
-            <option value="en">ENG</option>
-            <option value="es">ESP</option>
-        </select>
+      <div id="language-selector" class="language-selector">
+        <button id="btn-en" onclick="changeLanguage('eng')">
+          <img src="./img/flags/english.png" alt="English">
+        </button>
+        <button id="btn-es" onclick="changeLanguage('esp')">
+          <img src="./img/flags/spanish.png" alt="Español">
       </div>
   </header>
   <main class="main">
@@ -37,5 +38,9 @@
   <footer class="footer">
       Footer Content
   </footer>
+  <!-- ================================================================================================ -->
+  <!-- Script section -->
+  <!-- ================================================================================================ -->
+   <script src="./scripts/translate.js"></script>
 </body>
 </html>

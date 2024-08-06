@@ -7,7 +7,6 @@ body {
     rgb(0, 117, 255) 
   );
   background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite; /* Adds an animation to the gradient */
 }
 
 /* ================================================================== */
@@ -64,6 +63,32 @@ body {
 .nav a {
   color: white;
   text-decoration: none;
+}
+
+/* ================================================================== */
+/* Language switcher */
+/* ================================================================== */
+.language-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.language-selector button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-selector img {
+  width: 100%;
+  height: auto;
 }
 
 /* ================================================================== */
@@ -138,10 +163,3 @@ body {
   }
 }
 
-
-/* Gradient animation */
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
