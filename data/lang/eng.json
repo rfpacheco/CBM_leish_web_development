@@ -1,6 +1,11 @@
 {
     "genome_decoding": "Genome decoding",
     "about_us": "About us",
+        "mission" : "Mission",
+        "team" : "Team",
     "species": "Species",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+        "reports" : "Reports",
+        "datasets" : "Datasets",
+        "software" : "Software"
 }

@@ -15,8 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 document.getElementById('lang_genome_decoding').textContent = data.genome_decoding;
                 document.getElementById('lang_about_us').textContent = data.about_us;
+                    document.getElementById('lang_mission').textContent = data.mission;
+                    document.getElementById('lang_team').textContent = data.team;
                 document.getElementById('lang_species').textContent = data.species;
                 document.getElementById('lang_downloads').textContent = data.downloads;
+                    document.getElementById('lang_reports').textContent = data.reports;
+                    document.getElementById('lang_datasets').textContent = data.datasets;
+                    document.getElementById('lang_software').textContent = data.software;
             })
             .catch(error => console.error('Error loading language:', error));
         

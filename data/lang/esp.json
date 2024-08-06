@@ -1,6 +1,11 @@
 {
     "genome_decoding": "Decodificación genómica",
-    "about_us": "Sobre nosotros",
+    "about_us": "Nosotros",
+        "mission" : "Misión",
+        "team" : "Equipo",
     "species": "Especies",
-    "downloads": "Descargas"
+    "downloads": "Descargas",
+        "reports" : "Informes",
+        "datasets" : "Datos",
+        "software" : "Programas"
 }
