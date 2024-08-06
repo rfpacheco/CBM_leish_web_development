@@ -7,6 +7,10 @@ body {
     rgb(0, 117, 255) 
   );
   background-size: 200% 200%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* ================================================================== */
@@ -60,7 +64,7 @@ nav {
   display: flex;
   background-color: transparent;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
 }
 
 nav a {
@@ -68,6 +72,7 @@ nav a {
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
+  white-space: nowrap;
 }
 
 nav .dropdown {
@@ -143,17 +148,127 @@ nav .dropdown-content a:hover {
 /* Main content GRID SYSTEM*/
 /* ================================================================== */
 
-.main {
-  padding: 2em;
+main {
+  padding: 0;
   display: grid;
-  gap: 1em;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem;
+  justify-items: center;
+  flex: 1 0 auto;
 }
 
-.content {
-  background-color: #f4f4f4;
-  padding: 2em;
-  border: 1px solid #ddd;
+/* ================================================================== */
+/* Team-frontshow */
+/* ================================================================== */
+#team-frontshow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
 }
+
+#team-frontshow-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  width: 50%;
+}
+
+#team-frontshow-text-header,
+#team-frontshow-button {
+  display: flex;
+}
+
+#team-frontshow-text-header {
+  justify-content: flex-start; /* Align to the left */
+}
+
+#team-frontshow-text-header h3 {
+  color: rgb(255, 255, 255);
+  background-color: rgb(137, 58, 150);
+  padding: 0.5rem;
+}
+
+#team-frontshow-text p {
+  text-align: justify;
+  font-size: 0.75rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+
+#team-frontshow-button {
+  justify-content: flex-end; /* Align to the right */
+  align-self: flex-end; /* Ensure button is at the right edge */
+  color: rgb(255, 255, 255);
+  background-color: rgb(154, 113, 38);
+  padding: 0.4rem;
+  border-radius: 10px;
+  font-size: 0.5rem;
+  box-shadow: none;
+  border: none;
+}
+
+#team-frontshow-button:hover {
+  background-color: rgb(191, 12, 204);
+  cursor: pointer;
+}
+
+/* ================================================================== */
+/* Carousel */
+/* ================================================================== */
+
+#carousel-container {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+#carousel-slide {
+  display:flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 
 /* ================================================================== */
@@ -240,30 +355,35 @@ footer span img {
 /* Media queries */
 /* ================================================================== */
 
-/* 12-column grid for desktops */
-@media only screen and (min-width: 1025px) {
-  .main {
-      grid-template-columns: repeat(12, 1fr);
+/* Desktop */
+@media only screen and (min-width: 759px) {}
+
+/* Tablet portrait mode*/
+@media only screen and (min-width: 481px) and (max-width: 758px) {
+  /* HEADER */
+  /* ================================= */
+  .logo div {
+    display: none;
   }
 
-  .content {
-      grid-column: span 12;
+  nav {
+    gap: 0.5rem;
+  }
+
+  .language-selector {
+    flex-direction: column;
+  }
+
+  .language-selector select {
+    order: 1;
   }
 }
 
-/* 6-column grid for tablets */
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
-  .main {
-      grid-template-columns: repeat(6, 1fr);
-  }
 
-  .content {
-      grid-column: span 6;
-  }
-}
-
-/* 3-column grid for smartphones */
+/* Smartphones */
 @media only screen and (max-width: 480px) {
+  /* HEADER */
+  /* ================================= */
   .logo div {
     display: none;
   }
@@ -272,15 +392,6 @@ footer span img {
     width: 4rem;
   }
 
-  .main {
-      grid-template-columns: repeat(3, 1fr);
-  }
-
-  .content {
-      grid-column: span 3;
-  }
-
-  /* HEADER */
   nav {
       flex-direction: column;
   }
@@ -290,7 +401,26 @@ footer span img {
     top: 0;
   }
 
+  .language-selector {
+    flex-direction: column;
+  }
+
+  .language-selector select {
+    order: 1;
+  }
+
+  /* MAIN */
+  /* ================================= */
+  #team-frontshow {
+    flex-direction: column;
+  }
+
+  #team-frontshow-text {
+    width: 100%;
+  }
+
   /* FOOTER */
+  /* ================================= */
   #phone-mail {
     flex-direction: column;
     gap: 0.5em;

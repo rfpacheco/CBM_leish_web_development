@@ -59,8 +59,44 @@
   <!-- ================================================================================================ -->
   <!-- Main section -->
   <!-- ================================================================================================ -->
-  <main class="main">
-      <div class="content">Content</div>
+  <main>
+    <!--Team frontshow -->
+    <section id="team-frontshow">
+      <div id="team-frontshow-text">
+        <div id="team-frontshow-text-header"><h3>The Team</h3></div>
+        <p>Based on CBM (Centro de Biología Molecular Severo Ochoa - CSIC),  our team focuses on the molecular genetics of Leishmania parasites, the causative agents of leishmaniasis. Using state-of-the-art technology both in vitro and in silico, we study the gene expression and genomic plasticity in these parasites.</p>
+        <button id="team-frontshow-button" onclick="window.location.href='./pages/team.html'">Learn more</button>
+      </div>
+      <div id="carousel-container">
+        <div id="carousel-slide">
+          <img src="./img/lab_team/carousel/team_lab_2024.jpg" class="carousel-img" alt="Team photo 2024">
+          <img src="./img/lab_team/carousel/team_lab_old.jpg" class="carousel-img" alt="Old team photo">
+          <img src="./img/lab_team/carousel/leish_lab_pre2024.png" class="carousel-img" alt="Pre-2024 team photo">
+        </div>
+        <button class="carousel-button prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Team news-->
+    <section id="team-news">
+      <h1>Team News section</h1>
+    </section>
+
+    <!-- Leishmania frontshow sections-->
+    <section id="leishmania-frontshow">
+      <h1>Leishmania section</h1>
+    </section>
+
+    <!-- Leishmaniasis map section-->
+    <section id="leishmaniasis-map">
+      <h1>Map section</h1>
+    </sections>
+
+    <!-- Twitter section-->
+    <section id="twitter-zone">
+      <h1>Twitter sections</h1>
+    </section>
   </main>
   <!-- ================================================================================================ -->
   <!-- Footer -->
@@ -98,5 +134,6 @@
   <!-- Script section -->
   <!-- ================================================================================================ -->
    <script src="./scripts/translate.js"></script>
+   <script src="./scripts/carousel_img.js"></script>
 </body>
 </html>

@@ -121,7 +121,7 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-image {
+.carousel-img {
     width: 100%;
     border-radius: 10px;
 }
