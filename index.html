@@ -25,11 +25,11 @@
           </ul>
       </nav>
       <div id="language-selector" class="language-selector">
-        <button id="btn-en" onclick="changeLanguage('eng')">
-          <img src="./img/flags/english.png" alt="English">
-        </button>
-        <button id="btn-es" onclick="changeLanguage('esp')">
-          <img src="./img/flags/spanish.png" alt="Español">
+        <select id="language-dropdown" onchange="changeLanguage(this.value)">
+          <option value="eng" data-flag="./img/flags/english.png">ENG</option>
+          <option value="esp" data-flag="./img/flags/spanish.png">ESP</option>
+        </select>
+        <img id="selected-flag" src="/img/flags/english.png" alt="Selected Language">
       </div>
   </header>
   <main class="main">

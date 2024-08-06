@@ -14,7 +14,7 @@ body {
 /* ================================================================== */
 .header, .footer {
   background-color: rgb(137, 58, 150);
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 0.5rem;
   text-align: center;
 }
@@ -61,7 +61,7 @@ body {
 }
 
 .nav a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -70,26 +70,34 @@ body {
 /* ================================================================== */
 .language-selector {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-.language-selector button {
+.language-selector select {
   background-color: transparent;
-  border: none;
-  cursor: pointer;
-  width: 2.5rem;
-  height: auto;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  direction: rtl;
+
+
 }
+
+.language-selector select option {
+  color: rgb(255, 255, 255);
+  background-color: rgb(137, 58, 150);
+  font-weight: bolder;
+}
+
 
 .language-selector img {
-  width: 100%;
-  height: auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: block;
 }
+
 
 /* ================================================================== */
 /* Main content GRID SYSTEM*/
