@@ -172,7 +172,8 @@ main {
 
 }
 
-#team-frontshow-text {
+#team-frontshow-text,
+.news-post-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -182,7 +183,8 @@ main {
 }
 
 #team-frontshow-text-header,
-#team-frontshow-button {
+#team-frontshow-button,
+.news-post-title {
   display: flex;
 }
 
@@ -190,15 +192,17 @@ main {
   justify-content: flex-start; /* Align to the left */
 }
 
-#team-frontshow-text-header h3 {
+#team-frontshow-text-header h3,
+.news-post-title h3 {
   color: rgb(255, 255, 255);
   background-color: rgb(137, 58, 150);
   padding: 0.5rem;
 }
 
-#team-frontshow-text p {
+#team-frontshow-text p ,
+.news-post-text p {
   text-align: justify;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   padding-right: 1rem;
   padding-left: 1rem;
 }
@@ -294,16 +298,33 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 90%;
-  /* height: 100%; */
+  width: 70%;
+
   /* No padding because middle-box has the padding */
 }
 
-
 .news-post-img {
-  height: 4rem;
-  overflow: hidden;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.news-post-img img{
+  height: 20vw;  /* 20% of the viewport width IMPORTANT*/
+  overflow: hidden;
+  border-radius: 10%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* Defined above
+.news-post-title {}  */
+
+.news-post-title {
+  justify-content: flex-end;
+}
+
 
 
 /* ================================================================== */
