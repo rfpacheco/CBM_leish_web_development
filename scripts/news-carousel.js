@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const carouselContainer = document.getElementById('real-news-container');
 
-            data.forEach(post => {
+            data.forEach((post, index) => {
                 // Create the container for each post
                 const postDiv = document.createElement('div');
                 postDiv.classList.add('news-post');
-                // if (index!==0) postDiv.style.display = 'none'; // Hide all posts except the first one
+                if (index!==0) postDiv.style.display = 'none'; // Hide all posts except the first one
 
                     //Create a div to hold the img
                     const imgDiv = document.createElement('div');
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carousel functionality
     let currentIndex = 0;
+    
     function showSlide(index) {
         const posts = document.querySelectorAll('#real-news-container .news-post');
         if (index >= posts.length) {
@@ -80,4 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function changeSlide(n) {
         showSlide(currentIndex + n);
     }
+
+    window.changeSlide = changeSlide;
 });

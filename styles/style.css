@@ -329,8 +329,8 @@ main {
   height: 20vw;  /* 20% of the viewport width IMPORTANT*/
   overflow: hidden;
   border-radius: 10%;
-  flex-shrink: 0;
-  object-fit: cover;
+  /* flex-shrink: 0; */
+  /* object-fit: cover; */
 }
 
 /* Defined above
@@ -338,6 +338,16 @@ main {
 
 .news-post-title {
   justify-content: flex-end;
+}
+
+.flex-carousel-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 
