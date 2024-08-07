@@ -151,7 +151,7 @@ nav .dropdown-content a:hover {
 main {
   padding: 0;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
   gap: 0.5rem;
   justify-items: center;
   flex: 1 0 auto;
@@ -166,7 +166,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 90%;
+  width: 70%;
   padding-top: 2rem;
   padding-bottom: 2rem;
 
@@ -270,6 +270,41 @@ main {
 }
 
 
+/* ================================================================== */
+/* Team News */
+/* ================================================================== */
+.middle-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgb(137, 58, 150),
+    rgb(159, 158, 159)
+  );
+}
+
+.news-post {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+  /* height: 100%; */
+  /* No padding because middle-box has the padding */
+}
+
+
+.news-post-img {
+  height: 4rem;
+  overflow: hidden;
+}
+
 
 /* ================================================================== */
 /* Footer */
@@ -355,8 +390,12 @@ footer span img {
 /* Media queries */
 /* ================================================================== */
 
-/* Desktop */
-@media only screen and (min-width: 759px) {}
+/* Desktop WIDE */
+@media only screen and (min-width: 1440px) {
+  #team-frontshow {
+    width: 50%;
+  }
+}
 
 /* Tablet portrait mode*/
 @media only screen and (min-width: 481px) and (max-width: 758px) {
