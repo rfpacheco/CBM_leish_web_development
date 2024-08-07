@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('./data/news.json')
         .then(response => response.json())
         .then(data => {
-            const carouselContainer = document.getElementById('team-news-container');
+            const carouselContainer = document.getElementById('real-news-container');
 
             data.forEach(post => {
                 // Create the container for each post
                 const postDiv = document.createElement('div');
                 postDiv.classList.add('news-post');
+                // if (index!==0) postDiv.style.display = 'none'; // Hide all posts except the first one
 
                     //Create a div to hold the img
                     const imgDiv = document.createElement('div');
@@ -57,13 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             showSlide(currentIndex);
-            setInterval(() => changeSlide(1), 10000); // Change slide every 3 seconds
+            setInterval(() => changeSlide(1), 30000000); // Change slide every 3 seconds
         });
 
     // Carousel functionality
     let currentIndex = 0;
     function showSlide(index) {
-        const posts = document.querySelectorAll('#team-news-container .news-post');
+        const posts = document.querySelectorAll('#real-news-container .news-post');
         if (index >= posts.length) {
             currentIndex = 0;
         } else if (index < 0) {
