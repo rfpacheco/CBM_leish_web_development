@@ -1,4 +1,5 @@
 let currentNewsIndex = 0;
+let newsInterval;
 
 function showNewsSlide(index) {
     const newsPosts = document.querySelectorAll('#real-news-container .news-post');
@@ -29,7 +30,7 @@ function loadNews(lang) {
                 // Create the container for each post
                 const postDiv = document.createElement('div');
                 postDiv.classList.add('news-post');
-                if (index !== 0) postDiv.style.display = 'none'; // Hide all posts except the first one
+                // if (index !== 0) postDiv.style.display = 'none'; // Hide all posts except the first one
 
                 // Create and append the image
                 const imgDiv = document.createElement('div');
@@ -69,7 +70,16 @@ function loadNews(lang) {
                 newsPostsContainer.appendChild(postDiv);
             });
 
+            currentNewsIndex = 0;
             showNewsSlide(currentNewsIndex);
+
+            // Clear any existing interval before starting a new one
+            if (newsInterval) {
+                clearInterval(newsInterval);
+            }
+            
+            // Start the interval to show the next slide every 3 seconds
+            newsInterval = setInterval(() => changeNewsSlide(1), 10000);
         })
         .catch(error => console.error('Error loading news:', error));
 }
