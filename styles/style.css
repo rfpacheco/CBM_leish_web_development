@@ -315,6 +315,8 @@ main {
   align-items: center;
   gap: 1rem;
   width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   /* No padding because middle-box has the padding */
 }
 
