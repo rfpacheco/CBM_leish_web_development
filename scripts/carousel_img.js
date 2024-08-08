@@ -77,7 +77,7 @@ function loadTeamIntro() {
             clearInterval(teamIntroInterval);
             console.log('Previous interval cleared');
         }
-        teamIntroInterval = setInterval(() => changeTeamIntroSlide(1), 500000);
+        teamIntroInterval = setInterval(() => changeTeamIntroSlide(1), 5000);
         console.log('New interval set');
     })
     .catch(error => console.error('Error loading carousel:', error));
