@@ -102,6 +102,13 @@
 
     <!-- Leishmaniasis map section-->
     <section class="middle-box" id="leishmaniasis-map">
+      <div id="map-frontshow">
+        <div id="map-carousel-container">
+          <button class="flex-carousel-button prev" onclick="changeMapIntroSlide(-1)">&#10094;</button>
+          <div id="real-map-container"></div>
+          <button class="flex-carousel-button next" onclick="changeMapIntroSlide(1)">&#10095;</button>
+        </div>
+      </div>
     </sections>
 
     <!-- Twitter section-->
@@ -144,8 +151,9 @@
   <!-- Script section -->
   <!-- ================================================================================================ -->
   <script src="./scripts/carousel_img.js"></script> <!-- Carousel in team-frontshow-->
+  <script src="./scripts/translate.js"></script>
   <script src="./scripts/news_carousel.js"></script> <!-- Carousel in team-news-->
   <script src="./scripts/leish_intro_carousel.js"></script> <!-- Carousel in leish-frontshow-->
-  <script src="./scripts/translate.js"></script>
+  <script src="./scripts/map_intro_carousel.js"></script> <!-- Carousel in map-frontshow-->
 </body>
 </html>
