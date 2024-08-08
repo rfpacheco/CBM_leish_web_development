@@ -1,33 +1,76 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-img');
-    const totalSlides = slides.length;
+let teamIntroIndex = 0;
+let teamIntroInterval;
 
-    function showSlide(index) {
-        const carouselSlide = document.getElementById('carousel-slide');
-        if (index >= totalSlides) {
-            slideIndex = 0;
-        } else if (index < 0) {
-            slideIndex = totalSlides - 1;
-        } else {
-            slideIndex = index;
+function changeSlide(index) {
+  console.log('changeSlide called with index:', index);
+  const slides = document.querySelectorAll('#carousel-slide .carousel-slide-img');
+  
+  console.log('Slides found:', slides.length);
+  
+  if (index >= slides.length) {
+    teamIntroIndex = 0;
+  } else if (index < 0) {
+    teamIntroIndex = slides.length - 1;
+  } else {
+    teamIntroIndex = index;
+  }
+  
+  console.log('New teamIntroIndex:', teamIntroIndex);
+
+  slides.forEach((slide, i) => {
+    slide.style.display = i === teamIntroIndex ? 'flex' : 'none';
+  });
+}
+
+function changeTeamIntroSlide(n) {
+    console.log('changeTeamIntroSlide called with:', n);
+    changeSlide(teamIntroIndex + n);
+}
+
+function loadTeamIntro() {
+  console.log('Fetching JSON data...');
+  fetch('./img/lab_team/carousel/team_carousel.json')
+    .then(response => {
+      console.log('Response received:', response);
+      return response.json();
+    })
+    .then(data => {
+        console.log('Data loaded:', data);
+        const teamIntroContainer = document.getElementById('carousel-slide');
+        
+        console.log('teamIntroContainer found:', !!teamIntroContainer);
+        
+        teamIntroContainer.innerHTML = ''; // Clear existing carousel
+
+        data.forEach((post, index) => {
+            const imgDiv = document.createElement('div');
+            imgDiv.classList.add('carousel-slide-img');
+            if (index !== 0) imgDiv.style.display = 'none'; // Hide all slides except the first one
+
+            const img = document.createElement('img');
+            img.src = post.img;
+            img.alt = post.title;
+            imgDiv.appendChild(img);
+
+            console.log(`Slide ${index + 1} created with image src: ${img.src}`);
+            teamIntroContainer.appendChild(imgDiv);
+        });
+
+        teamIntroIndex = 0;
+        changeSlide(teamIntroIndex);
+
+        if (teamIntroInterval) {
+            clearInterval(teamIntroInterval);
+            console.log('Previous interval cleared');
         }
-        carouselSlide.style.transform = `translateX(${-slideIndex * 100}%)`;
-    }
+        teamIntroInterval = setInterval(() => changeTeamIntroSlide(1), 5000);
+        console.log('New interval set');
+    })
+    .catch(error => console.error('Error loading carousel:', error));
+}
 
-    function changeSlide(n) {
-        showSlide(slideIndex + n);
-    }
-
-    function autoSlide() {
-        showSlide(slideIndex + 1);
-    }
-
-    document.querySelector('.carousel-button.prev').addEventListener('click', () => changeSlide(-1));
-    document.querySelector('.carousel-button.next').addEventListener('click', () => changeSlide(1));
-
-    setInterval(autoSlide, 6000);
-
-    // Initial display
-    showSlide(slideIndex);
+// Initialize the carousel
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+    loadTeamIntro();
 });

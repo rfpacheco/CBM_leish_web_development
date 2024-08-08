@@ -248,6 +248,11 @@ main {
   width: 100%;
 }
 
+.carousel-slide-img {
+  width : 10vw;
+  height: 10vw;
+}
+
 .carousel-img {
   width: 100%;
   height: auto;
