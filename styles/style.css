@@ -151,7 +151,7 @@ nav .dropdown-content a:hover {
 main {
   padding: 0;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr 3fr;
   gap: 0.5rem;
   justify-items: center;
   flex: 1 0 auto;
@@ -416,6 +416,83 @@ main {
 }
 
 /* ================================================================== */
+/* Twiiter feed */
+/* ================================================================== */
+#twitter-zone{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 70%;
+}
+
+
+.tab {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  color: white;
+  background-color: rgb(137, 58, 150);
+  border-radius: 10%;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  border-color: transparent;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: rgb(191, 12, 204);
+  padding: 20px;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: rgb(0, 117, 255);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 70%;
+  overflow-y: auto;
+}
+
+/* Specific heights for each tab content */
+#WHO.tabcontent .twitter-timeline,
+#CBM.tabcontent .twitter-timeline,
+#CSIC.tabcontent .twitter-timeline,
+#UAM.tabcontent .twitter-timeline {
+  height: 800px !important;
+}
+
+#WHO.tabcontent,
+#CBM.tabcontent,
+#CSIC.tabcontent,
+#UAM.tabcontent {
+  width: 100%;
+  border: transparent;
+}
+/* Ensure Twitter widgets are responsive */
+.tabcontent .twitter-timeline {
+  width: 100% !important;
+}
+
+
+
+/* ================================================================== */
 /* Footer */
 /* ================================================================== */
 footer {
@@ -503,7 +580,8 @@ footer span img {
 @media only screen and (min-width: 1025px) {
   #team-frontshow,
   #real-news-container,
-  #real-leish-container {
+  #real-leish-container,
+  #twitter-zone {
     width: 50%;
   }
 }
@@ -534,7 +612,7 @@ footer span img {
   /* MAIN */
   /* ================================= */
   main {
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
   }
 
   #team-frontshow-text,
@@ -597,7 +675,7 @@ footer span img {
   /* ================================= */
 
   main {
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
   }
 
   #team-frontshow {
