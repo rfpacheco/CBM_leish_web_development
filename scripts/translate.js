@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Load news content
                 loadNews(lang);
+                // Load leish intro content
+                loadLeishIntro(lang);
             })
             .catch(error => console.error('Error loading language:', error));
         

@@ -1,82 +1,102 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const postsContainer = document.getElementById('posts-container');
+let leishIntroIndex = 0;
+let leishIntroInterval;
 
-    fetch('./data/posts.json')
-        .then(response => response.json())
-        .then(posts => {
-            posts.forEach(post => {
-                const postDiv = document.createElement('div');
-                postDiv.classList.add('post');
-                postDiv.setAttribute('data-tags', post.tags.join(','));
-                postDiv.setAttribute('data-date', post.date);
+function showLeishIntroSlide(index) {
+    console.log(`showLeishIntroSlide called with index: ${index}`);
+    const leishIntroPosts = document.querySelectorAll('#real-leish-container .leish-post');
+    console.log(`Found ${leishIntroPosts.length} posts in the container.`);
+    if (index >= leishIntroPosts.length) {
+        leishIntroIndex = 0;
+    } else if (index < 0) {
+        leishIntroIndex = leishIntroPosts.length - 1;
+    } else {
+        leishIntroIndex = index;
+    }
+    console.log(`Updated leishIntroIndex to: ${leishIntroIndex}`);
+    leishIntroPosts.forEach((post, idx) => {
+        post.style.display = (idx === leishIntroIndex) ? 'block' : 'none';
+    });
+}
 
-                const postTitle = document.createElement('h3');
-                postTitle.textContent = post.title;
+function changeLeishIntroSlide(n) {
+    console.log(`changeLeishIntroSlide called with increment: ${n}`);
+    showLeishIntroSlide(leishIntroIndex + n);
+}
 
-                const postDescription = document.createElement('p');
-                postDescription.textContent = post.description;
-
-                const postTags = document.createElement('p');
-                postTags.textContent = 'Tags: ' + post.tags.join(', ');
-
-                const postDate = document.createElement('p');
-                postDate.textContent = 'Date: ' + post.date;
-
-                postDiv.appendChild(postTitle);
-                postDiv.appendChild(postDescription);
-                postDiv.appendChild(postTags);
-                postDiv.appendChild(postDate);
-
-                postsContainer.appendChild(postDiv);
-            });
-
-            // Add event listeners for filtering
-            // Add event listeners for filtering and sorting
-            const checkboxes = document.querySelectorAll('.filters .opt-in');
-            const startDateInput = document.getElementById('start-date');
-            const endDateInput = document.getElementById('end-date');
-            const sortOrderSelect = document.getElementById('sort-order');
-
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', filterAndSortPosts);
-            });
-
-            startDateInput.addEventListener('change', filterAndSortPosts);
-            endDateInput.addEventListener('change', filterAndSortPosts);
-            sortOrderSelect.addEventListener('change', filterAndSortPosts);
-
-            function filterAndSortPosts() {
-                const selectedTags = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                const startDate = startDateInput.value;
-                const endDate = endDateInput.value;
-                const sortOrder = sortOrderSelect.value;
-
-                const postsElements = Array.from(document.querySelectorAll('.post'));
-
-                postsElements.forEach(post => {
-                    const postTags = post.getAttribute('data-tags').split(',');
-                    const postDate = post.getAttribute('data-date');
-
-                    const tagMatch = selectedTags.length === 0 || selectedTags.every(tag => postTags.includes(tag));
-                    const dateMatch = (!startDate || postDate >= startDate) && (!endDate || postDate <= endDate);
-
-                    if (tagMatch && dateMatch) {
-                        post.style.display = 'block';
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-
-                postsElements.sort((a, b) => {
-                    const dateA = new Date(a.getAttribute('data-date'));
-                    const dateB = new Date(b.getAttribute('data-date'));
-                    return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
-                });
-
-                postsElements.forEach(post => postsContainer.appendChild(post));
+function loadLeishIntro(lang) {
+    console.log(`loadLeishIntro called with language: ${lang}`);
+    fetch(`./data/lang/leish_intro_${lang}.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
             }
+            console.log(`Fetched data from ./data/lang/leish_intro_${lang}.json`);
+            return response.json();
         })
-        .catch(error => console.error('Error loading posts:', error));
+        .then(data => {
+            console.log('JSON data received:', data);
+            const leishIntroPostsContainer = document.getElementById('real-leish-container');
+            console.log('Found real-leish-container:', leishIntroPostsContainer);
+            leishIntroPostsContainer.innerHTML = ''; // Clear existing news
+
+            data.forEach((post, index) => {
+                console.log(`Creating post ${index}:`, post);
+                // Create the container for each post
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('leish-post');
+                if (index !== 0) postDiv.style.display = 'none'; // Hide all posts except the first one
+
+                // Create and append the image
+                const imgDiv = document.createElement('div');
+                imgDiv.classList.add('leish-post-img');
+                const img = document.createElement('img');
+                img.src = post.img;
+                img.alt = post.title;
+                imgDiv.appendChild(img);
+
+                // Create and append the text container
+                const textDiv = document.createElement('div');
+                textDiv.classList.add('leish-post-text');
+
+                // Create a div to hold the title
+                const titleDiv = document.createElement('div');
+                titleDiv.classList.add('leish-post-title');
+                const title = document.createElement('h3');
+                title.textContent = post.title;
+                titleDiv.appendChild(title);
+                textDiv.appendChild(titleDiv);
+
+                // Add the description
+                const description = document.createElement('p');
+                description.textContent = post.description;
+                textDiv.appendChild(description);
+
+                // Add the date
+                const date = document.createElement('p');
+                date.textContent = post.date;
+                textDiv.appendChild(date);
+
+                postDiv.appendChild(imgDiv);
+                postDiv.appendChild(textDiv);
+
+                leishIntroPostsContainer.appendChild(postDiv);
+            });
+
+            leishIntroIndex = 0;
+            showLeishIntroSlide(leishIntroIndex);
+
+            if (leishIntroInterval) {
+                clearInterval(leishIntroInterval);
+            }
+
+            leishIntroInterval = setInterval(() => changeLeishIntroSlide(1), 10000);
+        })
+        .catch(error => console.error('Error loading news:', error));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event fired');
+    window.changeLeishIntroSlide = changeLeishIntroSlide;
+    window.loadLeishIntro = loadLeishIntro;
+    loadLeishIntro('eng'); // Call the function with a default language for testing
 });

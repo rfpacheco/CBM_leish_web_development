@@ -173,7 +173,8 @@ main {
 }
 
 #team-frontshow-text,
-.news-post-text {
+.news-post-text,
+.leish-post-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +185,8 @@ main {
 
 #team-frontshow-text-header,
 #team-frontshow-button,
-.news-post-title {
+.news-post-title,
+.leish-post-title {
   display: flex;
 }
 
@@ -193,14 +195,16 @@ main {
 }
 
 #team-frontshow-text-header h3,
-.news-post-title h3 {
+.news-post-title h3,
+.leish-post-title h3 {
   color: rgb(255, 255, 255);
   background-color: rgb(137, 58, 150);
   padding: 0.5rem;
 }
 
 #team-frontshow-text p ,
-.news-post-text p {
+.news-post-text p,
+.leish-post-text p {
   text-align: justify;
   font-size: 0.9rem;
   padding-right: 1rem;
@@ -291,14 +295,17 @@ main {
 }
 
 #team-news,
-#post-carousel-container {
+#post-carousel-container,
+#leish-frontshow,
+#leish-carousel-container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#real-news-container {
+#real-news-container,
+#real-leish-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -308,7 +315,8 @@ main {
 }
 
 
-.news-post {
+.news-post,
+.leish-post {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -320,14 +328,16 @@ main {
   /* No padding because middle-box has the padding */
 }
 
-.news-post-img {
+.news-post-img,
+.leish-post-img {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.news-post-img img{
+.news-post-img img,
+.leish-post-img img {
   height: 20vw;  /* 20% of the viewport width IMPORTANT*/
   overflow: hidden;
   border-radius: 10%;
@@ -356,6 +366,18 @@ main {
 /* ================================================================== */
 /* Leish intro carousel */
 /* ================================================================== */
+/* Defined above  */
+/* #leish-frontshow, */
+/* #leish-carousel-container {} */
+/* #real-leish-container {} */
+.leish-post {
+  flex-direction: row-reverse;
+  /* some part defined above */
+}
+
+.leish-post-title {
+  justify-content: flex-start;
+}
 
 
 
@@ -445,7 +467,9 @@ footer span img {
 
 /* Desktop WIDE */
 @media only screen and (min-width: 1025px) {
-  #team-frontshow {
+  #team-frontshow,
+  #real-news-container,
+  #real-leish-container {
     width: 50%;
   }
 }
@@ -462,7 +486,10 @@ footer span img {
     gap: 0.5rem;
   }
 
-  .language-selector {
+  .language-selector,
+  #team-frontshow,
+  .news-post,
+  .leish-post {
     flex-direction: column;
   }
 
@@ -472,16 +499,10 @@ footer span img {
 
   /* MAIN */
   /* ================================= */
-  #team-frontshow {
-    flex-direction: column;
-  }
-
-  #team-frontshow-text {
+  #team-frontshow-text,
+  .news-post-text,
+  .leish-post-text {
     width: 100%;
-  }
-
-  .news-post {
-    flex-direction: column;
   }
 
   .news-post-img {
@@ -489,7 +510,12 @@ footer span img {
     order: 1;
   }
 
-  .news-post-img img {
+  .leish-post-img {
+    width: 100%;
+  }
+
+  .news-post-img img,
+  .leish-post-img img {
     width: 90%;
     height: auto;
   }
@@ -536,30 +562,32 @@ footer span img {
     width: 90%;
   }
 
-  #team-frontshow-text {
+  #team-frontshow-text,
+  .news-post-text,
+  .leish-post-text {
     width: 100%;
   }
 
-  #real-news-container {
+  #real-news-container,
+  #real-leish-container {
     width: 90%;
   }
 
-  .news-post {
+  .news-post,
+  .leish-post {
     flex-direction: column;
   }
 
-  .news-post-img {
+  .news-post-img, 
+  .leish-post-img {
     width: 100%;
     order: 1;
   }
 
-  .news-post-img img {
+   .news-post-img img,
+  .leish-post-img img {
     width: 90%;
     height: auto;
-  }
-
-  .news-post-text {
-    width: 100%;
   }
 
   /* FOOTER */
