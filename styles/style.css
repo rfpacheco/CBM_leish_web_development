@@ -238,14 +238,14 @@ main {
 
 #carousel-container {
   position: relative;
-  flex: 1;
   overflow: hidden;
-  width: 100%;
+  width: 50%;
 }
 
 #carousel-slide {
   display:flex;
   transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .carousel-img {
@@ -618,6 +618,10 @@ footer span img {
   #team-frontshow-text,
   .news-post-text,
   .leish-post-text {
+    width: 100%;
+  }
+
+  #carousel-container {
     width: 100%;
   }
 
