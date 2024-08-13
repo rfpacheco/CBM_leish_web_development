@@ -233,10 +233,7 @@ footer {
         gap: 0.5rem;
     }
 
-    .language-selector,
-    #team-frontshow,
-    .news-post,
-    .leish-post {
+    .language-selector {
         flex-direction: column;
     }
 
