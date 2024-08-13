@@ -24,12 +24,15 @@ header, footer {
 }
 
 header {
-  height: 10%;
+  height: 70px;  /* IMPORTANT for the fixed header */
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: space-between;
   align-items: center;
+  position: fixed;  /* IMPORTANT for the fixed header */
+  z-index: 5;  /* IMPORTANT for the fixed header */
 }
 
 .logo {
@@ -155,6 +158,7 @@ main {
   gap: 0.5rem;
   justify-items: center;
   flex: 1 0 auto;
+  margin-top: 70px;  /* IMPORTANT for the fixed header */
 }
 
 /* ================================================================== */
@@ -587,6 +591,7 @@ footer span img {
 /* ================================================================== */
 
 /* Desktop WIDE */
+/* ================================================================== */
 @media only screen and (min-width: 1025px) {
   #team-frontshow,
   #real-news-container,
@@ -597,9 +602,10 @@ footer span img {
 }
 
 /* Tablet portrait mode*/
-@media only screen and (min-width: 481px) and (max-width: 758px) {
+/* ================================================================== */
+@media only screen and (min-width: 481px) and (max-width: 775px) {
   /* HEADER */
-  /* ================================= */
+  /* ---------------------------------- */
   .logo div {
     display: none;
   }
@@ -620,7 +626,7 @@ footer span img {
   }
 
   /* MAIN */
-  /* ================================= */
+  /* ---------------------------------- */
   main {
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
   }
@@ -658,11 +664,15 @@ footer span img {
   }
 }
 
-
 /* Smartphones */
+/* ================================================================== */
 @media only screen and (max-width: 480px) {
   /* HEADER */
-  /* ================================= */
+  /* ---------------------------------- */
+  header {
+    height: 140px;  /* IMPORTANT for the fixed header */
+  }
+
   .logo div {
     display: none;
   }
@@ -689,10 +699,11 @@ footer span img {
   }
 
   /* MAIN */
-  /* ================================= */
+  /* ---------------------------------- */
 
   main {
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+    margin-top: 140px;  /* IMPORTANT for the fixed header */
   }
 
   #team-frontshow {
@@ -733,7 +744,7 @@ footer span img {
   }
 
   /* FOOTER */
-  /* ================================= */
+  /* ---------------------------------- */
   #phone-mail {
     flex-direction: column;
     gap: 0.5em;
