@@ -79,6 +79,11 @@
         <button id="next-page">Next</button>
       </div>
 
+      <!-- Top Scrollbar -->
+      <div id="top-scroll-container">
+        <div id="top-scroll"></div>
+      </div>
+
       <div id="results-container">
           <table id="results-table">
               <thead>
@@ -149,34 +154,37 @@
   <!-- ================================================================================================ -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        let currentPage = 1;
-        const limit = 50;
+        const topScrollContainer = document.getElementById('top-scroll-container');
+        const resultsContainer = document.getElementById('results-container');
+        const topScroll = document.getElementById('top-scroll');
     
-        // Load the initial page of data
-        fetchData(currentPage);
+        // Set the width of the top-scroll to match the content of the results table
+        function updateScrollWidths() {
+            topScroll.style.width = `${resultsContainer.scrollWidth}px`;
+        }
     
-        document.getElementById('search-button').addEventListener('click', function () {
-            currentPage = 1;  // Reset to the first page on a new search
-            fetchData(currentPage);
+        // Ensure the width is set initially and after each data fetch
+        updateScrollWidths();
+        resultsContainer.addEventListener('scroll', function () {
+            topScrollContainer.scrollLeft = resultsContainer.scrollLeft;
         });
     
-        document.getElementById('next-page').addEventListener('click', function () {
-            currentPage++;
-            fetchData(currentPage);
+        topScrollContainer.addEventListener('scroll', function () {
+            resultsContainer.scrollLeft = topScrollContainer.scrollLeft;
         });
     
-        document.getElementById('prev-page').addEventListener('click', function () {
-            if (currentPage > 1) {
-                currentPage--;
-                fetchData(currentPage);
-            }
-        });
+        // Recalculate the width if the window is resized
+        window.addEventListener('resize', updateScrollWidths);
     
+        // Fetch and populate data (for demonstration)
         function fetchData(page) {
             const query = document.getElementById('search-input').value;
             fetch(`/search?q=${encodeURIComponent(query)}&page=${page}&limit=${limit}`)
                 .then(response => response.json())
-                .then(data => populateTable(data));
+                .then(data => {
+                    populateTable(data);
+                    updateScrollWidths(); // Update scroll width after table is populated
+                });
         }
     
         function populateTable(data) {
@@ -201,6 +209,28 @@
                 resultsBody.appendChild(tr);
             });
         }
+    
+        // Initialize the first data load
+        let currentPage = 1;
+        const limit = 50;
+        fetchData(currentPage);
+    
+        document.getElementById('search-button').addEventListener('click', function () {
+            currentPage = 1;
+            fetchData(currentPage);
+        });
+    
+        document.getElementById('next-page').addEventListener('click', function () {
+            currentPage++;
+            fetchData(currentPage);
+        });
+    
+        document.getElementById('prev-page').addEventListener('click', function () {
+            if (currentPage > 1) {
+                currentPage--;
+                fetchData(currentPage);
+            }
+        });
     });
   </script>
     

@@ -86,6 +86,17 @@ main {
     width: 90vw;  /* 90% of the viewport width IMPORTANT*/
 }
 
+#top-scroll-container {
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: -16px; /* Adjust this to match the height of the scrollbar */
+    height: 16px; /* Adjust this to match the height of the scrollbar */
+}
+
+#top-scroll {
+    height: 1px;
+}
+
 #results-container {
     border: 1px solid #ddd;
     width: 100%;
