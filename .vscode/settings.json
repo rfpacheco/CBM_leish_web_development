@@ -33,7 +33,14 @@
             "database": "Leishmania",
             "username": "leish",
             "password": "Leishmania_1"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "SQLite Leish ",
+            "database": "~/Documents/Work_CBMSO/CBM_leish_web_development/data/sql/leishmania.db"
         }
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "sqltools.useNodeRuntime": true
 }

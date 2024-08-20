@@ -1,113 +1,116 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-* {
-    box-sizing: border-box;
-    /* border: 1px solid red !important; */
+html {
+    font-size: 16px;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/* ==================================================================*/
-/* ==================================================================*/
-/* ==================================================================*/
-/* Until here is the reset*/
-
-/* ==================================================================*/
-/* General elements */
-/* ==================================================================*/
-i {
-    font-style: italic;
-}
-
-
-/* ==================================================================*/
-/* Body elements */
-/* ==================================================================*/
-body {
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+      -45deg,
+      rgb(137, 58, 150),
+      rgba(0, 119, 255, 0.7),
+      rgb(137, 58, 150)
+    );
+    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
-/* ==================================================================*/
-/* Rest of the page, after the header */
-/* It should be away from the top, since the header is fixed */
-/* ==================================================================*/
+/* ================================================================== */
+/* Main content GRID SYSTEM*/
+/* ================================================================== */
+
 main {
-    margin-top: 90px;
+    padding: 0;
+    margin-top: 70px;  /* IMPORTANT for the fixed header */
+    display: grid;
+    grid-template-rows: 3rem 450px 1fr;
+    gap: 0.5rem;
+    justify-items: center;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+/* ================================================================== */
+/* Description | Genome view */
+/* ================================================================== */
+#desc-genome-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    width: 100%;
+    border-bottom: 5px solid rgb(191, 12, 204);
+}
+
+#desc-genome-selector a {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 3.5px 4px;
+    transition: 0.3s;
+    text-decoration: none;
+    width: 50%;
+    text-align: center;
+}
+
+#selector-1 {
+    background-color: rgb(137, 58, 150);
+    border-top: 10px solid rgb(137, 58, 150);
+    border-left: 10px solid rgb(137, 58, 150);
+    border-right: 10px solid rgb(137, 58, 150);
+    border-bottom: 10px solid rgb(191, 12, 204);
+}
+
+#selector-2 {
+    background-color: rgb(88, 41, 95);
+    border: 10px solid rgb(88, 41, 95);
+}
+
+#desc-genome-selector a:hover {
+    background-color: rgb(191, 12, 204);
+    border: 10px solid rgb(191, 12, 204);
 }
 
 /* ==================================================================*/
 /* Img title element */
+/* ==================================================================*/
 
 .img-title {
     display: flex;
-    align-items: flex-start;
-    height: 400px;
-    border: 2px solid #dddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
-    margin: 7px 3px 30px 3px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 90%;
+    height: 100%;
 }
 
 .img-title img {
-    width: 50%;
-    height: 400px;
+    border-radius: 5%;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .img-title article {
-    margin-left: 20px;
-    overflow-y: auto;
-    height: 400px;
     width: 50%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text-header {
+    display: flex;
+}
+
+.text-header h1 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(137, 58, 150);
+    padding: 0.5rem;
 }
 
 .img-title h1 {
@@ -129,35 +132,51 @@ main {
 /* Table structure */
 /* ==================================================================*/
 
-/* Styles for the downloads table */
-#downloads-table table {
+#downloads-table {
     width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#downloads-table table {
+    width: 100%;
     border-collapse: collapse;
     margin: 20px auto;
-    font-size: 15px;
+    font-size: 14px;
     text-align: left;
 }
 
 #downloads-table th, #downloads-table td {
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(225, 225, 225);
+    vertical-align: middle;
 }
 
 #downloads-table th {
-    background-color: #f4f4f4;
+    background-color: rgb(137, 58, 150);
+    color: rgb(255, 255, 255);
     font-weight: bold;
+    text-align: center;
 }
 
 #downloads-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: rgb(0, 119, 255);
+    color: rgb(225, 225, 225);
 }
 
+#downloads-table tr:nth-child(odd) {
+    background-color: rgb(41, 106, 181);
+    color: rgb(225, 225, 225);
+}
 #downloads-table tr:hover {
-    background-color: #f1f1f1;
+    background-color: rgb(137, 58, 150);
 }
 
 #downloads-table a {
-    color: #381E83;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
     text-decoration: none;
 }
 
@@ -167,17 +186,14 @@ main {
 
 .download-button {
     display: inline-block;
-    padding: 8px 12px;
-    color: #ffffff;
-    background-color: rgb(77, 36, 83, 0.6);
+    padding: 6px 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(191, 12, 204);
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
 }
 
 .download-button:hover {
-    background-color: #543b93;
-    color: #ffffff !important;
+    background-color: rgb(0, 119, 255);
 }
-
-

@@ -1,67 +1,64 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Set up SQLite connection
-const db = new sqlite3.Database('./data/sql/leishmania.db', (err) => {
-    if (err) {
-        console.error('Error opening database', err);
-    } else {
-        console.log('Connected to SQLite database');
-    }
-});
+// Middleware to parse JSON request bodies
+app.use(express.json());
 
-// Middleware
-app.use(bodyParser.json());
+// Serve static files from the current directory
 app.use(express.static(path.join(__dirname, '.')));
 
-// Serve HTML files from the 'html' directory
-app.get('/html/results.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'html', 'results.html'));
-});
-
-
-// Helper function to run SQL queries with async/await
-const runQuery = (sql, params) => {
-    return new Promise((resolve, reject) => {
-        db.all(sql, params, (err, rows) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(rows);
-            }
-        });
-    });
-};
-
-// Search endpoint
-app.get('/search', async (req, res) => {
-    let query = req.query.query;
-    let sqls = [
-        { table: 'infantum', sql: 'SELECT "infantum" AS source_table, id, cdsid, ortholog, associatedfunction FROM infantum WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
-        { table: 'donovani', sql: 'SELECT "donovani" AS source_table, id, cdsid, ortholog, associatedfunction FROM donovani WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] },
-        { table: 'braziliensis', sql: 'SELECT "braziliensis" AS source_table, id, cdsid, ortholog, associatedfunction FROM braziliensis WHERE cdsid LIKE ? OR ortholog LIKE ? OR associatedfunction LIKE ?', columns: ['source_table', 'id', 'cdsid', 'ortholog', 'associatedfunction'] }
-    ];
-
-    let values = [`%${query}%`, `%${query}%`, `%${query}%`];
-    let results = [];
-
-    try {
-        for (let sqlObj of sqls) {
-            let rows = await runQuery(sqlObj.sql, values);
-            results = results.concat(rows);
-        }
-        res.json(results);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Database query error' });
+// Open the SQLite database from the correct path
+const db = new sqlite3.Database(path.join(__dirname, 'data/sql/leishmania.db'), (err) => {
+    if (err) {
+      console.error('Error opening database', err.message);
+    } else {
+      console.log('Connected to the SQLite database.');
     }
+  });
+  
+app.get('/search', (req, res) => {
+    const query = req.query.q || '';
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 50;  // Default limit of 50 rows per page
+    const offset = (page - 1) * limit;
+
+    const sql = `
+        SELECT * FROM infantum 
+        WHERE Gene_ID LIKE ? 
+        OR Name LIKE ? 
+        OR Other_names LIKE ? 
+        OR Wikidata LIKE ? 
+        OR Mendeley LIKE ? 
+        OR UniProt LIKE ? 
+        OR LmjF_ortholog LIKE ? 
+        OR LmjFC_ortholog LIKE ? 
+        OR LdHU3_ortholog LIKE ? 
+        OR LBRM2904_ortholog LIKE ?
+        LIMIT ? OFFSET ?;
+    `;
+
+    const params = Array(10).fill(`%${query}%`);
+    params.push(limit, offset);
+
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+            res.status(500).send('Error querying database');
+        } else {
+            res.json(rows);
+        }
+    });
 });
 
-const PORT = process.env.PORT || 3000;
+// Serve the main index.html file
+app.get('/', (req, res) => {
+res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Start the server
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+console.log(`Server is running on http://localhost:${PORT}`);
 });
