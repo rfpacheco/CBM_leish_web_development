@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`./data/lang/index/${lang}.json`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('lang_genome_decoding').textContent = data.genome_decoding;
+                // Header content
+                document.getElementById('lang_genome_decoding').textContent = data.genomeDecoding;
                 document.getElementById('lang_about_us').textContent = data.aboutUs;
                 document.getElementById('lang_mission').textContent = data.mission;
                 document.getElementById('lang_team').textContent = data.team;
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('lang_reports').textContent = data.reports;
                 document.getElementById('lang_datasets').textContent = data.datasets;
                 document.getElementById('lang_software').textContent = data.software;
+                // Main content
                 document.getElementById('team-frontshow-text-header').querySelector('h3').textContent = data.theTeam;
                 document.getElementById('team-frontshow-text').querySelector('p').textContent = data.theTeam_description;
                 document.getElementById('team-frontshow-button').textContent = data.theTeam_learnMore;

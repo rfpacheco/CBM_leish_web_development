@@ -13,10 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to load language
     const loadLanguage = (lang) => {
-        fetch(`../data/lang/${lang}.json`)
+        fetch(`../data/lang/pages/L_infantum/${lang}.json`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('lang_genome_decoding').textContent = data.genome_decoding;
+                // Header content
+                document.getElementById('lang_genome_decoding').textContent = data.genomeDecoding;
                 document.getElementById('lang_about_us').textContent = data.aboutUs;
                 document.getElementById('lang_mission').textContent = data.mission;
                 document.getElementById('lang_team').textContent = data.team;
@@ -25,17 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('lang_reports').textContent = data.reports;
                 document.getElementById('lang_datasets').textContent = data.datasets;
                 document.getElementById('lang_software').textContent = data.software;
-                document.getElementById('team-frontshow-text-header').querySelector('h3').textContent = data.theTeam;
-                document.getElementById('team-frontshow-text').querySelector('p').textContent = data.theTeam_description;
-                document.getElementById('team-frontshow-button').textContent = data.theTeam_learnMore;
-
-                // Load news content
-                loadNews(lang);
-                // Load leish intro content
-                loadLeishIntro(lang);
-
-                // Load map intro content
-                loadMapIntro(lang);
+                // Main content
+                document.getElementById('lang_l_infantum_desc').textContent = data.descriptionTab;
+                document.getElementById('lang_l_infantum_brow').textContent = data.browserTab;
+                document.getElementById('lang_l_infantum_desc_text').innerHTML = data.descriptionText;  // InnerHTML to render HTML tags
             })
             .catch(error => console.error('Error loading language:', error));
         
