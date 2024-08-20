@@ -1,40 +1,40 @@
-let leishIntroIndex = 0;
-let leishIntroInterval;
+let mapIntroIndex = 0;
+let mapIntroInterval;
 
-function showLeishIntroSlide(index) {
-    const leishIntroPosts = document.querySelectorAll('#real-leish-container .leish-post');
-    if (index >= leishIntroPosts.length) {
-        leishIntroIndex = 0;
+function showMapIntroSlide(index) {
+    const mapIntroPosts = document.querySelectorAll('#real-map-container .map-post');
+    if (index >= mapIntroPosts.length) {
+        mapIntroIndex = 0;
     } else if (index < 0) {
-        leishIntroIndex = leishIntroPosts.length - 1;
+        mapIntroIndex = mapIntroPosts.length - 1;
     } else {
-        leishIntroIndex = index;
+        mapIntroIndex = index;
     }
-    leishIntroPosts.forEach((post, i) => {
-        post.style.display = i === leishIntroIndex ? 'flex' : 'none';
+    mapIntroPosts.forEach((post, i) => {
+        post.style.display = i === mapIntroIndex ? 'flex' : 'none';
     });
 }
 
-function changeLeishIntroSlide(n) {
-    showLeishIntroSlide(leishIntroIndex + n);
+function changeMapIntroSlide(n) {
+    showMapIntroSlide(mapIntroIndex + n);
 }
 
-function loadLeishIntro(lang) {
-    fetch(`./data/lang/leish_intro_${lang}.json`)
+function loadMapIntro(lang) {
+    fetch(`./data/lang/index/map_intro_${lang}.json`)
         .then(response => response.json())
         .then(data => {
-            const leishIntroPostsContainer = document.getElementById('real-leish-container');
-            leishIntroPostsContainer.innerHTML = ''; // Clear existing news
+            const mapIntroPostsContainer = document.getElementById('real-map-container');
+            mapIntroPostsContainer.innerHTML = ''; // Clear existing news
 
             data.forEach((post, index) => {
                 // Create the container for each post
                 const postDiv = document.createElement('div');
-                postDiv.classList.add('leish-post');
+                postDiv.classList.add('map-post');
                 if (index !== 0) postDiv.style.display = 'none'; // Hide all posts except the first one
 
                 // Create and append the image
                 const imgDiv = document.createElement('div');
-                imgDiv.classList.add('leish-post-img');
+                imgDiv.classList.add('map-post-img');
                 const img = document.createElement('img');
                 img.src = post.img;
                 img.alt = post.title;
@@ -42,11 +42,11 @@ function loadLeishIntro(lang) {
 
                 // Create and append the text container
                 const textDiv = document.createElement('div');
-                textDiv.classList.add('leish-post-text');
+                textDiv.classList.add('map-post-text');
 
                 // Create a div to hold the title
                 const titleDiv = document.createElement('div');
-                titleDiv.classList.add('leish-post-title');
+                titleDiv.classList.add('map-post-title');
                 const title = document.createElement('h3');
                 title.textContent = post.title;
                 titleDiv.appendChild(title);
@@ -67,24 +67,24 @@ function loadLeishIntro(lang) {
                 postDiv.appendChild(textDiv);
 
                 // Append the post container to the news posts container
-                leishIntroPostsContainer.appendChild(postDiv);
+                mapIntroPostsContainer.appendChild(postDiv);
             });
 
-            leishIntroIndex = 0;
-            showLeishIntroSlide(leishIntroIndex);
+            mapIntroIndex = 0;
+            showMapIntroSlide(mapIntroIndex);
 
             // Clear any existing interval before starting a new one
-            if (leishIntroInterval) {
-                clearInterval(leishIntroInterval);
+            if (mapIntroInterval) {
+                clearInterval(mapIntroInterval);
             }
 
             // Start the interval to show the next slide every 10 seconds
-            leishIntroInterval = setInterval(() => changeLeishIntroSlide(1), 10000);
+            mapIntroInterval = setInterval(() => changeMapIntroSlide(1), 10000);
         })
         .catch(error => console.error('Error loading leish intro:', error));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.changeLeishIntroSlide = changeLeishIntroSlide;
-    window.loadLeishIntro = loadLeishIntro;
+    window.changeMapIntroSlide = changeMapIntroSlide;
+    window.loadMapIntro = loadMapIntro;
 });
