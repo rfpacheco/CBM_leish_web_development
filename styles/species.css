@@ -92,6 +92,7 @@ main {
   overflow: hidden;
   object-fit: cover;
   width: 50%;
+  max-height: 100%;  /* Ensuring the image does not exceed its container's height */
 }
 
 .img-title article {
