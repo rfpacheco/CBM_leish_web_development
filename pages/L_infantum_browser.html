@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -35,8 +35,8 @@
       <div class="dropdown">
         <a href="#" id="lang_species">Species</a>
         <div class="dropdown-content">
-          <a href="./L_major.html" id="lang_L_major"><i>L. major</i></a>
           <a href="#" id="lang_L_infantum"><i>L. infantum</i></a>
+          <a href="./L_major.html" id="lang_L_major"><i>L. major</i></a>
           <a href="./L_donovani.html" id="lang_L_donovani"><i>L. donovani</i></a>
           <a href="./L_braziliensis.html" id="lang_L_braziliensis"><i>L. braziliensis</i></a>
         </div>
@@ -52,7 +52,7 @@
     </nav>
     <!--Language selector-->
     <div id="language-selector" class="language-selector">
-      <select id="language-dropdown" onchange="changeLanguage(this.value)">
+      <label for="language-dropdown"></label><select id="language-dropdown" onchange="changeLanguage(this.value)">
         <option value="eng" data-flag="../img/flags/english.png">ENG</option>
         <option value="esp" data-flag="../img/flags/spanish.png">ESP</option>
       </select>
@@ -70,13 +70,13 @@
 
     <section id="browser-section">
       <div id="search bar">
-        <input type="text" id="search-input" placeholder="Search for genes, names, or orthologs...">
+        <label for="search-input"></label><input type="text" id="search-input" placeholder="Search for genes, names, or orthologs...">
         <button id="search-button">Search</button>
       </div>
 
-      <div id="pagination-controls">
-        <button id="prev-page">Previous</button>
-        <button id="next-page">Next</button>
+      <div class="pagination-controls">
+        <button class="prev-page">Previous</button>
+        <button class="next-page">Next</button>
       </div>
 
       <!-- Top Scrollbar -->
@@ -106,9 +106,9 @@
           </table>
       </div>
 
-      <div id="pagination-controls">
-        <button id="prev-page">Previous</button>
-        <button id="next-page">Next</button>
+      <div class="pagination-controls">
+        <button class="prev-page">Previous</button>
+        <button class="next-page">Next</button>
       </div>
     </section>
 
@@ -146,95 +146,98 @@
     <div id="government-logos">
       <img src="../img/logos/1-CSIC-Logotipo--Web-Gob-Min-CSIC--COLOR--PNG-RGB-300ppp.png"
         alt="Spanish Government, Science Minisry and CSIC logos">
-      <img src="../img/logos/Combo-CBMExcelencia.png " alt="CBM and Excelencia logos">
+      <img src="../img/logos/Combo-CBMExcelencia.png " alt="CBM and Excellency logos">
     </div>
   </footer>
   <!-- ================================================================================================ -->
   <!-- JavaScript -->
   <!-- ================================================================================================ -->
   <script src="../scripts/pages/translate_L_infantum.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         const topScrollContainer = document.getElementById('top-scroll-container');
         const resultsContainer = document.getElementById('results-container');
         const topScroll = document.getElementById('top-scroll');
-    
+
         // Set the width of the top-scroll to match the content of the results table
         function updateScrollWidths() {
-            topScroll.style.width = `${resultsContainer.scrollWidth}px`;
+          topScroll.style.width = `${resultsContainer.scrollWidth}px`;
         }
-    
+
         // Ensure the width is set initially and after each data fetch
         updateScrollWidths();
         resultsContainer.addEventListener('scroll', function () {
-            topScrollContainer.scrollLeft = resultsContainer.scrollLeft;
+          topScrollContainer.scrollLeft = resultsContainer.scrollLeft;
         });
-    
+
         topScrollContainer.addEventListener('scroll', function () {
-            resultsContainer.scrollLeft = topScrollContainer.scrollLeft;
+          resultsContainer.scrollLeft = topScrollContainer.scrollLeft;
         });
-    
+
         // Recalculate the width if the window is resized
         window.addEventListener('resize', updateScrollWidths);
-    
+
         // Fetch and populate data (for demonstration)
         function fetchData(page) {
-            const query = document.getElementById('search-input').value;
-            fetch(`/search?q=${encodeURIComponent(query)}&page=${page}&limit=${limit}`)
-                .then(response => response.json())
-                .then(data => {
+          const query = document.getElementById('search-input').value;
+          fetch(`/search?q=${encodeURIComponent(query)}&page=${page}&limit=${limit}`)
+                  .then(response => response.json())
+                  .then(data => {
                     populateTable(data);
                     updateScrollWidths(); // Update scroll width after table is populated
-                });
+                  });
         }
-    
+
         function populateTable(data) {
-            const resultsBody = document.getElementById('results-body');
-            resultsBody.innerHTML = '';
-    
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-    
-                Object.keys(row).forEach(key => {
-                    const td = document.createElement('td');
-    
-                    if (key === "Wikidata" || key === "Mendeley" || key === "UniProt") {
-                        td.innerHTML = row[key];
-                    } else {
-                        td.textContent = row[key];
-                    }
-    
-                    tr.appendChild(td);
-                });
-    
-                resultsBody.appendChild(tr);
+          const resultsBody = document.getElementById('results-body');
+          resultsBody.innerHTML = '';
+
+          data.forEach(row => {
+            const tr = document.createElement('tr');
+
+            Object.keys(row).forEach(key => {
+              const td = document.createElement('td');
+
+              if (key === "Wikidata" || key === "Mendeley" || key === "UniProt") {
+                td.innerHTML = `<a href="${row[key]}" target="_blank">${key}</a>`;
+              } else {
+                td.textContent = row[key];
+              }
+
+              tr.appendChild(td);
             });
+
+            resultsBody.appendChild(tr);
+          });
         }
-    
+
         // Initialize the first data load
         let currentPage = 1;
         const limit = 50;
         fetchData(currentPage);
-    
+
         document.getElementById('search-button').addEventListener('click', function () {
-            currentPage = 1;
-            fetchData(currentPage);
+          currentPage = 1;
+          fetchData(currentPage);
         });
-    
-        document.getElementById('next-page').addEventListener('click', function () {
-            currentPage++;
-            fetchData(currentPage);
-        });
-    
-        document.getElementById('prev-page').addEventListener('click', function () {
-            if (currentPage > 1) {
+
+        // Attach event listeners to both sets of pagination buttons
+        const paginationButtons = document.querySelectorAll('.pagination-controls button');
+
+        paginationButtons.forEach(button => {
+          button.addEventListener('click', function (event) {
+            if (event.target.classList.contains('next-page')) {
+              currentPage++;
+              fetchData(currentPage);
+            } else if (event.target.classList.contains('prev-page')) {
+              if (currentPage > 1) {
                 currentPage--;
                 fetchData(currentPage);
+              }
             }
+          });
         });
-    });
-  </script>
-    
-
+      });
+    </script>
 </body>
 </html>
