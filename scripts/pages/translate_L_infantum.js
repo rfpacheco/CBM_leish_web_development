@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Main content
                 document.getElementById('lang_species_desc').textContent = data.descriptionTab;
                 document.getElementById('lang_species_brow').textContent = data.browserTab;
-                document.getElementById('lang_l_infantum_desc_text').innerHTML = data.descriptionText;  // InnerHTML to render HTML tags
+                document.getElementById('lang_species_desc_text').innerHTML = data.descriptionText;  // InnerHTML to render HTML tags
             })
             .catch(error => console.error('Error loading language:', error));
         
