@@ -129,6 +129,24 @@ main {
 /* ==================================================================*/
 /* Team selector */
 /* ==================================================================*/
+.team-category-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.team-category-selector button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.team-category-selector button.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
 .meet-team {
   text-align: center;
   margin-top: 50px;
@@ -190,6 +208,7 @@ main {
   text-align: center;
   background-image: url("../img/lab_team/other/molcules_black_and_white.png");
   background-size: cover;
+  width: 100%;
 }
 
 .details-container img {
