@@ -26,11 +26,19 @@ function showDetails(memberId) {
         },
     };
 
+    
+    const teamElements = document.getElementsByClassName('meet-team');
+    const detailsContainer = document.querySelector('.details-container');
     const largeImage = document.getElementById('large-image');
     const memberDescription = document.getElementById('member-description');
     const memberDetails = details[memberId];
 
     if (memberDetails) {
+
+        for (const element of teamElements) {
+            element.style.marginBottom = '0px';
+        }
+        detailsContainer.style.display = 'flex';
         largeImage.src = memberDetails.image;
         largeImage.style.display = 'block';
         memberDescription.textContent = memberDetails.description;
