@@ -29,6 +29,50 @@ main {
   flex: 1 0 auto;
   margin-top: 70px; /* IMPORTANT for the fixed header */
 }
+/* ================================================================== */
+/* Selector: Mission | Team | Publications */
+/* ================================================================== */
+#desc-genome-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  border-bottom: 5px solid rgb(191, 12, 204);
+}
+#desc-genome-selector a {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 4px 4px;
+  transition: 0.3s;
+  text-decoration: none;
+  width: calc(100% / 3);
+  text-align: center;
+}
+
+#selector-1 {
+  background-color: rgb(88, 41, 95);
+  border: 10px solid rgb(88, 41, 95);
+}
+
+#selector-2 {
+  background-color: rgb(137, 58, 150);
+  border-top: 10px solid rgb(137, 58, 150);
+  border-left: 10px solid rgb(137, 58, 150);
+  border-right: 10px solid rgb(137, 58, 150);
+  border-bottom: 10px solid rgb(191, 12, 204);
+}
+
+#selector-3 {
+  background-color: rgb(88, 41, 95);
+  border: 10px solid rgb(88, 41, 95);
+}
+
+#desc-genome-selector a:hover {
+  background-color: rgb(191, 12, 204);
+  border: 10px solid rgb(191, 12, 204)
+}
 
 /* ================================================================== */
 /* Team-frontshow */
@@ -38,7 +82,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   width: 90%;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -51,20 +95,6 @@ main {
   align-items: center;
   gap: 1rem;
   width: 100%;
-}
-
-#team-frontshow-text-header {
-  display: flex;
-}
-
-#team-frontshow-text-header {
-  justify-content: flex-start; /* Align to the left */
-}
-
-#team-frontshow-text-header h3 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(137, 58, 150);
-  padding: 0.5rem;
 }
 
 #team-frontshow-text p {
@@ -131,35 +161,38 @@ main {
 /* ==================================================================*/
 .team-category-selector {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  border-bottom: 5px solid rgb(191, 12, 204);
 }
 
 .team-category-selector button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #eee;
+  color: rgb(255, 255, 255);
   cursor: pointer;
+  padding: 4px 4px;
+  transition: 0.3s;
+  text-decoration: none;
+  width: calc(100% / 2);
+  text-align: center;
+  background-color: rgb(88, 41, 95);
+  border: 10px solid rgb(88, 41, 95);
 }
 
 .team-category-selector button.active {
-  background-color: #ccc;
-  font-weight: bold;
+  background-color: rgb(137, 58, 150);
+  border-top: 10px solid rgb(137, 58, 150);
+  border-left: 10px solid rgb(137, 58, 150);
+  border-right: 10px solid rgb(137, 58, 150);
+  border-bottom: 10px solid rgb(191, 12, 204);
 }
 
 .meet-team {
   text-align: center;
-  margin-top: 50px;
   margin-bottom: 50px;
   font-size: 30px;
-}
-
-.meet-team h2 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(137, 58, 150);
-  padding: 0.5rem;
-  display: inline-block;
-
 }
 
 .team-container {
@@ -227,4 +260,10 @@ main {
   color: rgb(255, 255, 255);
 }
 
+/* ================================================================== */
+/* Media queries */
+/* ================================================================== */
+/*@media only screen and (min-width: 1025px) {*/
+
+/*}*/
 

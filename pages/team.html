@@ -29,13 +29,13 @@
       <a href="#" id="lang_about_us">About Us</a>
       <div class="dropdown-content">
         <a href="./mission.html" id="lang_mission">Mission</a>
-        <a href="./team.html" id="lang_team">Team</a>
+        <a href="#" id="lang_team">Team</a>
       </div>
     </div>
     <div class="dropdown">
       <a href="#" id="lang_species">Species</a>
       <div class="dropdown-content">
-        <a href="#" id="lang_L_infantum"><i>L. infantum</i></a>
+        <a href="./L_infantum.html" id="lang_L_infantum"><i>L. infantum</i></a>
         <a href="./L_major.html" id="lang_L_major"><i>L. major</i></a>
         <a href="./L_donovani.html" id="lang_L_donovani"><i>L. donovani</i></a>
         <a href="./L_braziliensis.html" id="lang_L_braziliensis"><i>L. braziliensis</i></a>
@@ -63,10 +63,15 @@
 <!-- Main section -->
 <!-- ================================================================================================ -->
 <main>
+  <section id="desc-genome-selector">
+    <a href="./mission.html" id="selector-1"><span>Mission</span></a>  <!-- TODO: translation id -->
+    <a href="#" id="selector-2"><span>Team</span></a>  <!-- TODO: translation id -->
+    <a href="./publications.html" id="selector-3"><span>Publications</span></a>  <!-- TODO: translation id -->
+  </section>
   <!--Team frontshow -->
   <section id="team-frontshow">
     <div id="team-frontshow-text">
-      <div id="team-frontshow-text-header"><h3>The Team</h3></div>
+<!--      <div id="team-frontshow-text-header"><h3>The Team</h3></div>-->
       <p>Based on CBM (Centro de Biología Molecular Severo Ochoa - CSIC), our team focuses on the molecular genetics of
         Leishmania parasites, the causative agents of leishmaniasis. Using state-of-the-art technology both in vitro and
         in silico, we study the gene expression and genomic plasticity in these parasites.</p>
@@ -84,7 +89,6 @@
 
   <!-- Meet the team -->
   <div class="meet-team" id="members">
-    <h2>Team members</h2>
     <!-- Main character selector -->
     <section class="team-container">
       <div class="team-member" onmouseover="showDetails('requena')">
@@ -110,7 +114,6 @@
 
   <!-- Former team members -->
   <div class="meet-team" id="former-members" style="display: none;">
-    <h2>Former Team members</h2>
     <section class="team-container">
       <div class="team-member" onmouseover="showDetails('ronny')">
         <img src="../img/lab_team/ronny.png" alt="Former member 1">
