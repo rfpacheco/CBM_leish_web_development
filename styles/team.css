@@ -114,7 +114,7 @@ main {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
-  height: 500px; /* Fix height because of the arrows */
+  height: auto; /* Fix height because of the arrows */
   justify-content: center;
   align-items: center;
 }
