@@ -5,13 +5,13 @@ function switchTeam(category) {
     const formerMembersBtn = document.getElementById('former-members-btn');
 
     if (category === 'members') {
-        membersSection.style.display = 'block';
+        membersSection.style.display = 'flex';
         formerMembersSection.style.display = 'none';
         membersBtn.classList.add('active');
         formerMembersBtn.classList.remove('active');
     } else {
         membersSection.style.display = 'none';
-        formerMembersSection.style.display = 'block';
+        formerMembersSection.style.display = 'flex';
         membersBtn.classList.remove('active');
         formerMembersBtn.classList.add('active');
     }

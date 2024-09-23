@@ -202,12 +202,14 @@ main {
 }
 
 .team-container {
-  display: flex;
-  /*justify-content: center;*/  /* NOTE: Doesn't work with overflow-x*/
+  display: inline-flex;
+  /*justify-content: center;  !* NOTE: Doesn't work with overflow-x*!*/
+  justify-content: space-around;
   align-items: center;
   gap: 20px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .team-member {
@@ -241,7 +243,7 @@ main {
 /* Details container */
 /* ==================================================================*/
 .details-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -283,9 +285,10 @@ main {
 
 /* Tablet portrait mode */
 /* ------------------------------------------------------------------ */
-@media only screen and (min-width: 481px) and (max-width: 775px) {
+@media only screen and (max-width: 775px) {
   main {
     grid-template-rows: 3rem 1fr 3rem 0.5fr 0.5fr;
+    /*margin-bottom: -135px; !* Negative margin to pull the footer upwards, compensating for some elements' spacing *!*/
   }
 
   .details-container {
@@ -299,5 +302,18 @@ main {
 /* Smartphones */
 /* ================================================================== */
 @media only screen and (max-width: 480px) {
+  body {
+    min-height: 50vh;
+  }
+  main {
+    margin-top: 140px;
+    /*margin-bottom: -60px; !* Negative margin to pull the footer upwards, compensating for some elements' spacing *!*/
+    grid-template-rows: 3rem 0.5fr 3rem 0.5fr 1fr;
+  }
+}
 
+@media only screen and (max-width: 321px) {
+  .details-container img {
+    height: 275px;  /* NOTE: The img default at 300px will be too auto-width long for the available space. */
+  }
 }
