@@ -1,7 +1,11 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+// Now for the HTTPS/SSL security protocols:
+const https = require('https');
+const fs = require('fs');
 
+// Let's call express "app" and PORT 3000
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -58,7 +62,14 @@ app.get('/', (req, res) => {
 res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Start the server
-app.listen(PORT, () => {
-console.log(`Server is running on http://localhost:${PORT}`);
+// Prepare the HTTPS/SSL
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+}, app)
+
+// Start the HTTPS server
+sslServer.listen(PORT, () => {
+    console.log(`HTTPS Server is running on https://localhost:${PORT}`);
 });
+
