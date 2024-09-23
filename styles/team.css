@@ -124,17 +124,19 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel-slide-img img {
-  width: 100%;
   overflow: auto;
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 500px; /* Limit max height to 500px */
 }
 
 .carousel-button {
   position: absolute;
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
