@@ -250,7 +250,7 @@ main {
   background-image: url("../img/lab_team/other/molcules_black_and_white.png");
   background-size: cover;
   width: 100%;
-  height: 300px;
+  /*height: 300px;*/
 }
 
 .details-container img {
@@ -284,7 +284,17 @@ main {
 /* Tablet portrait mode */
 /* ------------------------------------------------------------------ */
 @media only screen and (min-width: 481px) and (max-width: 775px) {
+  main {
+    grid-template-rows: 3rem 1fr 3rem 0.5fr 0.5fr;
+  }
 
+  .details-container {
+    flex-direction: column-reverse;
+  }
+
+  .details-container article {
+    width: 70%;
+  }
 }
 /* Smartphones */
 /* ================================================================== */
