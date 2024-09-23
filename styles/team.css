@@ -191,18 +191,28 @@ main {
 }
 
 .meet-team {
+  display: flex;
   text-align: center;
+  justify-content: center;
   font-size: 30px;
+  position: relative;
+  width: 90%;
+  height: 150px;
+  overflow-x: auto;
 }
 
 .team-container {
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/  /* NOTE: Doesn't work with overflow-x*/
+  align-items: center;
   gap: 20px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .team-member {
   display: block;
+  flex: 0 0 auto;
   height: 100px;
   width: 100px;
 }
@@ -227,7 +237,6 @@ main {
   transform: scale(1.1);
   box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
 }
-
 /* ==================================================================*/
 /* Details container */
 /* ==================================================================*/
@@ -275,5 +284,10 @@ main {
 /* Tablet portrait mode */
 /* ------------------------------------------------------------------ */
 @media only screen and (min-width: 481px) and (max-width: 775px) {
+
+}
+/* Smartphones */
+/* ================================================================== */
+@media only screen and (max-width: 480px) {
 
 }
